@@ -28,7 +28,7 @@ typedef struct	s_spec
 	int			size;
 	char		*arg_as_a_string;
 }				t_spec;
-enum			flag
+enum			flag_enum
 {
 	NO_FLAG,
 	LESS,
@@ -39,6 +39,7 @@ enum			flag
 };
 enum			type_enum
 {
+	ERROR,
 	CHAR,
 	STRING,
 	ADDRESS,
@@ -48,5 +49,4 @@ enum			type_enum
 	UNSIGNED_INT,
 	PERC
 };
-
 #endif

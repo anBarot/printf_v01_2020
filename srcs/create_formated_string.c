@@ -23,8 +23,7 @@ char	*ft_formated_string(char *str, va_list *arg_lst)
 	ft_get_type(str, spec);
 	ft_get_flag(str, spec);
 	ft_get_width(str, spec);
-	ft_get_precision(str, spec);
-	ft_get_size(str, spec);
+	ft_get_precision_and_size(str, spec);
 	ft_get_arg_as_a_string(str, arg_lst, spec);
 	formated_string = ft_apply_spec(spec);
 	ft_free_spec(spec);
