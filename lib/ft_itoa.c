@@ -12,28 +12,6 @@
 
 #include "libft.h"
 
-static char	*ft_swap(char *s)
-{
-	int		start;
-	int		end;
-	char	tmp;
-
-	start = 0;
-	if (s[0] == '-')
-		start++;
-	end = ft_strlen(s) - 1;
-	tmp = 0;
-	while (end > start)
-	{
-		tmp = s[start];
-		s[start] = s[end];
-		s[end] = tmp;
-		end--;
-		start++;
-	}
-	return (s);
-}
-
 char		*ft_itoa(int n)
 {
 	char		*res;
@@ -60,5 +38,5 @@ char		*ft_itoa(int n)
 		i++;
 	}
 	res[i] = '\0';
-	return (ft_swap(res));
+	return (ft_reverse_string(res));
 }

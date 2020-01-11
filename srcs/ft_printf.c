@@ -14,12 +14,12 @@
 
 int	ft_printf(const char *str, ...)
 {
-	va_list		*arg_lst;
+	va_list		arg_lst;
 	char		*str_to_display;
 	int			str_length;
 	t_str_list	*string_list;
 
-	va_start(lst, str);
+	va_start(arg_lst, str);
 	if (!(string_list = ft_fill_str_lst(str, arg_lst)))
 		return (0);
 	va_end(arg_lst);

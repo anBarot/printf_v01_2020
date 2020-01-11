@@ -47,7 +47,6 @@ void	ft_get_type(char *str, t_spec *spec)
 void	ft_get_flag(char *str, t_spec *spec)
 {
 	int i_str;
-	enum flag_enum;
 
 	i_str = 0;
 	while (str[i_str] == '0')
@@ -65,7 +64,7 @@ void	ft_get_flag(char *str, t_spec *spec)
 		spec->flag = HASHTAG;
 }
 
-void	ft_get_width(char *str, va_list *lst, t_spec *spec)
+void	ft_get_width(char *str, va_list lst, t_spec *spec)
 {
 	int i_str;
 
@@ -89,7 +88,7 @@ void	ft_get_width(char *str, va_list *lst, t_spec *spec)
 	}
 }
 
-void ft_get_precision_and_size(char *str, va_list *lst, t_spec *spec)
+void ft_get_precision_and_size(char *str, va_list lst, t_spec *spec)
 {
 	int i_str;
 
@@ -113,16 +112,14 @@ void ft_get_precision_and_size(char *str, va_list *lst, t_spec *spec)
 	}
 }
 
-void	ft_get_arg_as_a_string(char *str, va_list *lst, t_spec *spec)
+void	ft_get_arg_as_a_string(char *str, va_list lst, t_spec *spec)
 {
-	enum type_enum;
-
-	(spec->type == CHAR) ? spec->arg_as_a_string = : 0;
-	(spec->type == STRING) ? spec->arg_as_a_string = : 0;
-	(spec->type == SIGNED_INT) ? spec->arg_as_a_string = : 0;
-	(spec->type == UNSIGNED_INT) ? spec->arg_as_a_string = : 0;
-	(spec->type == CAP_HEXADEC) ? spec->arg_as_a_string = : 0;
-	(spec->type == HEXADEC) ? spec->arg_as_a_string = : 0;
-	(spec->type == ADDRESS) ? spec->arg_as_a_string = : 0;
-	(spec->type == PERC) ? spec->arg_as_a_string = : 0;
+	(spec->type == CHAR) ? spec->arg_as_a_string = ft_char_to_str(va_arg(lst, int)) : 0;
+	(spec->type == STRING) ? spec->arg_as_a_string = ft_strdup(va_arg(lst, char *)) : 0;
+	(spec->type == SIGNED_INT) ? spec->arg_as_a_string = ft_itoa(va_arg(lst, int)) : 0;
+	(spec->type == UNSIGNED_INT) ? spec->arg_as_a_string = ft_utoa(va_arg(lst, unsigned int)) : 0;
+	(spec->type == CAP_HEXADEC) ? spec->arg_as_a_string = ft_toupper_string(ft_hextoa(va_arg(lst, unsigned int))) : 0;
+	(spec->type == HEXADEC) ? spec->arg_as_a_string = ft_hextoa(va_arg(lst, unsigned int)) : 0;
+	(spec->type == ADDRESS) ? spec->arg_as_a_string = ft_addtoa(va_arg(lst, unsigned long)) : 0;
+	(spec->type == PERC) ? spec->arg_as_a_string = ft_char_to_str('%') : 0;
 }

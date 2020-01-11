@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-char	*ft_formated_string(char *str, va_list *arg_lst)
+char	*ft_formated_string(char *str, va_list arg_lst)
 {
 	char	*formated_string;
 	t_spec	*spec;
@@ -26,6 +26,7 @@ char	*ft_formated_string(char *str, va_list *arg_lst)
 	ft_get_precision_and_size(str, spec);
 	ft_get_arg_as_a_string(str, arg_lst, spec);
 	formated_string = ft_apply_spec(spec);
-	ft_free_spec(spec);
+	free(spec->arg_as_a_string);
+	free(spec);
 	return (formated_string);
 }

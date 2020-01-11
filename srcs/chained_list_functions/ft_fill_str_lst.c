@@ -14,7 +14,7 @@
 
 t_str_list	*ft_fill_str_lst(char *str, va_list *arg_lst)
 {
-	int	start,
+	int	start;
 	int end;
 	int	size;
 	t_str_list *str_list;
