@@ -18,7 +18,8 @@ void	ft_initialyse_spec(t_spec *spec)
 	enum flag_enum;
 
 	spec->type = ERROR;
-	spec->flag = NO_FLAG;
+	spec->zero_less_flag = NO_FLAG;
+	spec->space_plus_hashtag_flag = NO_FLAG;
 	spec->width = 0;
 	spec->precision = 0;
 	spec->size = 0;
@@ -44,24 +45,24 @@ void	ft_get_type(char *str, t_spec *spec)
 	}
 }
 
-void	ft_get_flag(char *str, t_spec *spec)
+void	ft_get_flags(char *str, t_spec *spec)
 {
 	int i_str;
 
 	i_str = 0;
-	while (str[i_str] == '0')
-	{	
-		spec->flag = ZERO;
-		i_str++;
+	while (!ft_isdigit(str[i_str]) && str[i_str] != '*')
+	{
+		while (str[i_str++] == '0')
+			spec->flag = ZERO;
+		if (str[i_str] == '-')
+			spec->flag = LESS;
+		if (str[i_str] == '+')
+			spec->flag += PLUS;
+		else if (str[i_str] == ' ')
+			spec->flag += SPACE;
+		if (str[i_str] == '#')
+			spec->flag += HASHTAG;
 	}
-	if (str[i_str] == '-')
-		spec->flag = LESS;
-	if (str[i_str] == '+')
-		spec->flag = PLUS;
-	if (str[i_str] == ' ')
-		spec->flag = SPACE;
-	if (str[i_str] == '#')
-		spec->flag = HASHTAG;
 }
 
 void	ft_get_width(char *str, va_list lst, t_spec *spec)
@@ -110,6 +111,7 @@ void ft_get_precision_and_size(char *str, va_list lst, t_spec *spec)
 		}
 		i_str++;
 	}
+	(spec->precision == 0 && spec->flag == ZERO) ? spec->flag = NO_FLAG : 0;
 }
 
 void	ft_get_arg_as_a_string(char *str, va_list lst, t_spec *spec)
@@ -122,4 +124,9 @@ void	ft_get_arg_as_a_string(char *str, va_list lst, t_spec *spec)
 	(spec->type == HEXADEC) ? spec->arg_as_a_string = ft_hextoa(va_arg(lst, unsigned int)) : 0;
 	(spec->type == ADDRESS) ? spec->arg_as_a_string = ft_addtoa(va_arg(lst, unsigned long)) : 0;
 	(spec->type == PERC) ? spec->arg_as_a_string = ft_char_to_str('%') : 0;
+	if (spec->arg_as_a_string == 0)
+	{
+		free(spec->arg_as_a_string);
+		spec->arg_as_a_string = ft_strdup("(null)");
+	}
 }

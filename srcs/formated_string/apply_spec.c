@@ -12,12 +12,12 @@ char	*ft_apply_spec(t_spec *spec)
 
 void	ft_apply_width(t_spec *spec)
 {
-	(spec->flag == NO_FLAG) ? ft_apply_no_flag(spec) : 0;
-	(spec->flag == LESS) ? ft_apply_flag_less(spec) : 0;
-	(spec->flag == PLUS) ? ft_apply_flag_plus(spec) : 0;
-	(spec->flag == HASHTAG) ? ft_apply_flag_hashtag(spec) : 0;
-	(spec->flag == SPACE) ? ft_apply_flag_space(spec) : 0;
-	(spec->flag == ZERO) ? ft_apply_flag_zero(spec) : 0;
+	(spec->zero_less_flag == NO_FLAG) ? ft_apply_no_flag(spec) : 0;
+	(spec->space_plus_hashtag_flag == SPACE) ? ft_apply_flag_space(spec) : 0;
+	(spec->space_plus_hashtag_flag == PLUS) ? ft_apply_flag_plus(spec) : 0;
+	(spec->space_plus_hashtag_flag == HASHTAG) ? ft_apply_flag_hashtag(spec) : 0;
+	(spec->zero_less_flag == LESS) ? ft_apply_flag_less(spec) : 0;
+	(spec->zero_less_flag == ZERO) ? ft_apply_flag_zero(spec) : 0;
 }
 
 void	ft_apply_precision(t_spec *spec)
