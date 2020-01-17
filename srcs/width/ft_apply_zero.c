@@ -2,21 +2,22 @@
 
 void	ft_apply_zero(t_spec *spec)
 {
-	char	*tmp;
-
-	(spec->type == CHAR) ? ft_apply_no_flag(spec) : 0;
-	if ((spec->type == SIGNED_INT || spec->type == HEXADEC ||
-		spec->type == CAP_HEXADEC) && spec->arg_as_a_string[0] == '-')
+	if (spec->type == CHAR)
 	{
-		while (spec->width > (int)ft_strlen(spec->arg_as_a_string))
-		{
-			tmp = spec->arg_as_a_string;
-			spec->arg_as_a_string = ft_strjoin("-0", (spec->arg_as_a_string) + 1, 0);
-			(tmp) ? free(tmp) : 0;
-		}
+		spec->zero_less_flag = NO_FLAG_ZERO_LESS;
+		return ;
 	}
-	else if (spec->type == SIGNED_INT && spec->space_plus_hashtag_flag == PLUS)
-		spec->width--;
+	if ((spec->type == HEXADEC || spec->type == CAP_HEXADEC) && spec->hashtag_flag)
+		spec->width -= 2;
+	if (spec->type == SIGNED_INT && (spec->arg_as_a_string[0] == '-' || spec->arg_as_a_string[0] == '+' || spec->arg_as_a_string[0] == ' '))
+	{
+		spec->arg_as_a_string[0] = '0';
+		while (spec->width > (int)ft_strlen(spec->arg_as_a_string))
+			spec->arg_as_a_string = ft_strjoin("0", spec->arg_as_a_string, 2);
+		(spec->space_plus_flag == PLUS) ? spec->arg_as_a_string[0] = '+' : 0;  
+		(spec->space_plus_flag == SPACE) ? spec->arg_as_a_string[0] = ' ' : 0;  
+		(!spec->space_plus_flag) ? spec->arg_as_a_string[0] = '-' : 0;  
+	}
 	while (spec->width > (int)ft_strlen(spec->arg_as_a_string))
 		spec->arg_as_a_string = ft_strjoin("0", spec->arg_as_a_string, 2);
 }

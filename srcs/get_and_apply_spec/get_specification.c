@@ -16,7 +16,8 @@ void	ft_initialyse_spec(t_spec *spec)
 {
 	spec->type = ERROR;
 	spec->zero_less_flag = NO_FLAG_ZERO_LESS;
-	spec->space_plus_hashtag_flag = NO_FLAG_SPACE_PLUS_HASH;
+	spec-> space_plus_flag = NO_FLAG_SPACE_PLUS;
+	spec->hashtag_flag = 0;
 	spec->width = 0;
 	spec->precision = 0;
 	spec->size = 0;
@@ -37,6 +38,7 @@ void	ft_get_type(const char *str, t_spec *spec)
 		(str[i_str] == 'u') ? spec->type = UNSIGNED_INT : 0;
 		(str[i_str] == '%') ? spec->type = PERC : 0;
 		(str[i_str] == 's') ? spec->type = STRING : 0;
+		(str[i_str] == 'f') ? spec->type = FLOAT : 0;
 		i_str++;
 	}
 }
@@ -53,25 +55,22 @@ void	ft_get_flags(const char *str, t_spec *spec)
 		if (str[i_str] == '-')
 			spec->zero_less_flag = LESS;
 		if (str[i_str] == '+')
-			spec->space_plus_hashtag_flag = PLUS;
+			spec-> space_plus_flag = PLUS;
 		if (str[i_str] == ' ')
-			spec->space_plus_hashtag_flag = SPACE;
+			(!spec->space_plus_flag) ? spec-> space_plus_flag = SPACE : 0;
 		if (str[i_str] == '#')
-			spec->space_plus_hashtag_flag = HASHTAG;
+			spec-> hashtag_flag = 1;
 		i_str++;
 	}
 }
 
 void	ft_get_width(const char *str, va_list lst, t_spec *spec)
 {
-	// printf("\n---enterring get width---\n");
 	int i_str;
 
 	i_str = 0;
 	while (str[i_str] && str[i_str] != '.' && !ft_is_printf_type(str[i_str]))
 	{
-		while ((str[i_str] == '-' || str[i_str] == '+' || str[i_str] == '0'))
-			i_str++;
 		while (str[i_str] == '*')
 		{
 			spec->width = va_arg(lst, unsigned int);
@@ -83,8 +82,12 @@ void	ft_get_width(const char *str, va_list lst, t_spec *spec)
 			i_str++;
 		}
 		if (ft_isdigit(str[i_str]))
+		{	
 			spec->width = ft_atoi(str + i_str);
-		while (ft_isdigit(str[i_str]))
+			while (ft_isdigit(str[i_str]))
+				i_str++;
+		}
+		else
 			i_str++;
 	}
 }
@@ -129,13 +132,20 @@ void	ft_get_arg_as_a_string(va_list lst, t_spec *spec)
 {
 	(spec->type == CHAR) ? spec->arg_as_a_string = ft_char_to_string(va_arg(lst, int)) : 0;
 	(spec->type == STRING) ? spec->arg_as_a_string = ft_strdup(va_arg(lst, char *)) : 0;
-	(spec->type == STRING && spec->arg_as_a_string == 0) ? spec->arg_as_a_string = ft_strdup("(null)") : 0;
-	(spec->type == CHAR && *spec->arg_as_a_string == 0) ? spec->type = CHAR_IS_ZERO : 0;
 	(spec->type == SIGNED_INT) ? spec->arg_as_a_string = ft_itoa(va_arg(lst, int)) : 0;
 	(spec->type == UNSIGNED_INT) ? spec->arg_as_a_string = ft_utoa(va_arg(lst, unsigned int)) : 0;
 	(spec->type == CAP_HEXADEC) ? spec->arg_as_a_string = ft_toupper_string(ft_hextoa(va_arg(lst, unsigned int))) : 0;
 	(spec->type == HEXADEC) ? spec->arg_as_a_string = ft_hextoa(va_arg(lst, unsigned int)) : 0;
 	(spec->type == ADDRESS) ? spec->arg_as_a_string = ft_addtoa(va_arg(lst, unsigned long)) : 0;
 	(spec->type == PERC) ? spec->arg_as_a_string = ft_char_to_string('%') : 0;
-
+	(spec->type == FLOAT) ? spec->arg_as_a_string = ft_ftoa((float)(va_arg(lst, double))) : 0;
+	if ((spec->type == CAP_HEXADEC || spec->type == HEXADEC) && 
+			spec-> hashtag_flag == 1 && *spec->arg_as_a_string == '0')
+		spec->hashtag_flag = 0;
+	if (spec->type == CHAR && *spec->arg_as_a_string == 0)
+		spec->type = CHAR_IS_ZERO;
+	if (spec->type == STRING && spec->arg_as_a_string == 0) 
+		spec->arg_as_a_string = ft_strdup("(null)");
+	if (spec->type == SIGNED_INT && spec->arg_as_a_string[0] == '-')
+		spec->space_plus_flag = NO_FLAG_SPACE_PLUS;
 }

@@ -28,7 +28,7 @@ int		ft_formated_string(const char *str, va_list arg_lst)
 	ft_get_type(str, spec);
 	ft_get_arg_as_a_string(arg_lst, spec);
 	// printf("\ntype : %d\narg as a string : |%s|\nwidth : %d\nflag zero less: %d\nflag plus hash space : %d\n%s precision\nsize : %d\n", 
-	// spec->type, spec->arg_as_a_string, spec->width, spec->zero_less_flag, spec->space_plus_hashtag_flag,(spec->precision == 1) ? "YES" : "NO",spec->size);
+	// spec->type, spec->arg_as_a_string, spec->width, spec->zero_less_flag, spec-> space_plus_flag,(spec->precision == 1) ? "YES" : "NO",spec->size);
 	ft_apply_spec(spec);
 	to_return = ft_strlen(spec->arg_as_a_string);
 	if (spec->type == CHAR_IS_ZERO)

@@ -15,12 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-
-typedef struct		s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
 int					ft_atoi(const char *s);
 void				ft_bzero(void *s, size_t n);
 void				*ft_calloc(size_t num, size_t size);
@@ -61,4 +55,7 @@ char				*ft_addtoa(unsigned long n);
 char				*ft_hextoa(unsigned int n);
 char				*ft_char_to_string(int c);
 char				*ft_toupper_string(char *str);
+char				*ft_ftoa(double fl);
+char				*ft_rounded_ascii(char *str);
+char				*ft_ltoa(long long n);
 #endif

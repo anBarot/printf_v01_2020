@@ -23,8 +23,9 @@ SRCS	=	srcs/ft_printf.c \
 			srcs/width/ft_apply_space.c \
 			srcs/width/ft_apply_zero.c \
 			srcs/precision/ft_apply_precision_address.c \
-			srcs/precision/ft_apply_precision_int.c \
-			srcs/precision/ft_apply_precision_string.c
+			srcs/precision/ft_apply_precision_number.c \
+			srcs/precision/ft_apply_precision_string.c \
+			srcs/precision/ft_apply_precision_float.c
 
 SRCS_LIB	=	libft/ft_memset.c libft/ft_bzero.c libft/ft_memcpy.c libft/ft_memccpy.c \
 				libft/ft_memmove.c libft/ft_memchr.c libft/ft_memcmp.c libft/ft_strlen.c \
@@ -36,7 +37,7 @@ SRCS_LIB	=	libft/ft_memset.c libft/ft_bzero.c libft/ft_memcpy.c libft/ft_memccpy
 				libft/ft_itoa.c libft/ft_strmapi.c libft/ft_putchar_fd.c libft/ft_putstr_fd.c  \
 				libft/ft_putendl_fd.c libft/ft_putnbr_fd.c libft/ft_toupper_string.c \
 				libft/ft_reverse_string.c libft/ft_hextoa.c libft/ft_addtoa.c libft/ft_char_to_str.c \
-				libft/ft_utoa.c
+				libft/ft_utoa.c libft/ft_ftoa.c libft/ft_ltoa.c libft/ft_rounded_ascii.c
 
 OBJS		=	$(SRCS:.c=.o)
 
