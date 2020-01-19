@@ -22,7 +22,8 @@ SRCS	=	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c \
 			ft_itoa.c ft_strmapi.c ft_putchar_fd.c ft_putstr_fd.c  \
 			ft_putendl_fd.c ft_putnbr_fd.c ft_toupper_string.c \
 			ft_reverse_string.c ft_hextoa.c ft_addtoa.c ft_char_to_str.c \
-			ft_utoa.c ft_ftoa.c ft_rounded_ascii.c ft_ltoa.c
+			ft_utoa.c ft_ftoa.c ft_rounded_ascii.c ft_ltoa.c \
+			ft_scinottoa.c
 
 OBJS	=	$(SRCS:.c=.o)
 

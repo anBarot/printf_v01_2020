@@ -49,7 +49,8 @@ enum			type_enum
 	SIGNED_INT,
 	UNSIGNED_INT,
 	PERC,
-	FLOAT
+	FLOAT,
+	SCI_NOTATION
 };
 int			ft_printf(const char *str, ...);
 int			ft_is_printf_type(char c);

@@ -58,4 +58,5 @@ char				*ft_toupper_string(char *str);
 char				*ft_ftoa(double fl);
 char				*ft_rounded_ascii(char *str);
 char				*ft_ltoa(long long n);
+char				*ft_scinottoa(double fl);
 #endif
