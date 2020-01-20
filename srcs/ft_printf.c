@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 13:16:56 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/20 11:23:41 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/20 16:32:27 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,17 @@ int	ft_printf(const char *str, ...)
 			ft_putchar_fd(str[i_str], 1);
 			to_return++;
 		}
-		else if (str[i_str])
+		else if (str[i_str] && ft_spec_is_valid(str + i_str + 1))
 		{
 			i_str++;
 			to_return += ft_formated_string(str + i_str, arg_lst);
 			while (str[i_str] && !ft_is_printf_type(str[i_str]))
 				i_str++;
 		}
-		i_str++;
+		else while (str[i_str] && ft_is_printf_option(str[i_str + 1]))
+			i_str++;
+		if (str[i_str])
+			i_str++;
 	}
 	va_end(arg_lst);
 	return (to_return);
@@ -49,4 +52,12 @@ int	ft_is_printf_type(char c)
 		return (1);
 	else
 		return (ERROR);
+}
+
+int	ft_is_printf_option(char c)
+{
+	if (ft_is_printf_type(c) || c == '-' || c == '+' || c == ' ' || c == '*' ||
+	ft_isdigit(c) || c == '#' || c == '.')
+		return (1);
+	return (0);
 }

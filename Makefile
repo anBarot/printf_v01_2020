@@ -6,7 +6,7 @@
 #    By: abarot <abarot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/15 12:18:43 by abarot            #+#    #+#              #
-#    Updated: 2020/01/20 10:43:33 by abarot           ###   ########.fr        #
+#    Updated: 2020/01/20 13:46:22 by abarot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRCS	=	srcs/ft_printf.c \
 			srcs/get_and_apply_spec/apply_spec.c \
 			srcs/get_and_apply_spec/create_formated_string.c \
 			srcs/get_and_apply_spec/get_specification.c \
+			srcs/get_and_apply_spec/ft_spec_is_valid.c \
 			srcs/width/ft_apply_hashtag.c \
 			srcs/width/ft_apply_less.c \
 			srcs/width/ft_apply_no_flag.c \
@@ -25,7 +26,7 @@ SRCS	=	srcs/ft_printf.c \
 			srcs/precision/ft_apply_precision_address.c \
 			srcs/precision/ft_apply_precision_number.c \
 			srcs/precision/ft_apply_precision_string.c \
-			srcs/precision/ft_apply_precision_float.c
+			srcs/precision/ft_apply_precision_float.c 
 
 SRCS_LIB	=	libft/ft_memset.c libft/ft_bzero.c libft/ft_memcpy.c libft/ft_memccpy.c \
 				libft/ft_memmove.c libft/ft_memchr.c libft/ft_memcmp.c libft/ft_strlen.c \

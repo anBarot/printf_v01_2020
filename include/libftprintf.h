@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 13:19:04 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/20 10:46:40 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/20 14:12:26 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,11 @@ enum			type_enum
 };
 int			ft_printf(const char *str, ...);
 int			ft_is_printf_type(char c);
+int			ft_is_printf_option(char c);
 int			ft_formated_string(const char *str, va_list arg_lst);
 void		ft_initialyse_spec(t_spec *spec);
+int			ft_spec_is_valid(const char *str);
+int			ft_apply_not_valid(char *str, t_spec *spec);
 void		ft_get_type(const char *str, t_spec *spec);
 void		ft_get_flags(const char *str, t_spec *spec);
 void		ft_get_width(const char *str, va_list lst, t_spec *spec);

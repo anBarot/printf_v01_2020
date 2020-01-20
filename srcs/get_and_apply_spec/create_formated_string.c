@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 16:30:39 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/08 16:52:27 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/20 16:51:55 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int		ft_formated_string(const char *str, va_list arg_lst)
 {
-	// printf("\n---creating formated string---\n");
 	t_spec	*spec;
 	int		to_return;
 	
@@ -45,14 +44,15 @@ int		ft_formated_string(const char *str, va_list arg_lst)
 
 void	ft_display_char_is_zero(t_spec *spec)
 {
+	spec->width ? spec->width-- : 0;
 	if (spec->zero_less_flag == LESS)
 	{
 		ft_putchar_fd(0, 1);
 		ft_putstr_fd(spec->arg_as_a_string, 1);
 	}
-	else if (spec->zero_less_flag == NO_FLAG_ZERO_LESS)
+	else
 	{
-		ft_putchar_fd(0, 1);
 		ft_putstr_fd(spec->arg_as_a_string, 1);
-	} 
+		ft_putchar_fd(0, 1);
+	}
 }

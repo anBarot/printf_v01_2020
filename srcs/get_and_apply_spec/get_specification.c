@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 16:22:59 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/20 11:29:21 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/20 16:27:07 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_get_flags(const char *str, t_spec *spec)
 	int i_str;
 
 	i_str = 0;
-	while (!ft_is_printf_type(str[i_str]) && str[i_str])
+	while (!ft_is_printf_type(str[i_str]) && str[i_str] && str[i_str] != '.')
 	{
 		if (str[i_str] == '0')
 			(spec->zero_less_flag != LESS) ? spec->zero_less_flag = ZERO : 0;
@@ -60,7 +60,10 @@ void	ft_get_flags(const char *str, t_spec *spec)
 			(!spec->space_plus_flag) ? spec-> space_plus_flag = SPACE : 0;
 		if (str[i_str] == '#')
 			spec-> hashtag_flag = 1;
-		i_str++;
+		while (ft_isdigit(str[i_str]))
+			i_str++;
+		if (str[i_str] && str[i_str] != '.' && !ft_is_printf_type(str[i_str]))
+			i_str++;
 	}
 }
 
@@ -71,17 +74,20 @@ void	ft_get_width(const char *str, va_list lst, t_spec *spec)
 	i_str = 0;
 	while (str[i_str] && str[i_str] != '.' && !ft_is_printf_type(str[i_str]))
 	{
-		while (str[i_str] == '*')
+		if (str[i_str] == '*')
 		{
-			spec->width = va_arg(lst, unsigned int);
-			if (spec->width < 0)
+			while (str[i_str] == '*')
 			{
-				spec->zero_less_flag = LESS;
-				spec->width = -(spec->width);
+				spec->width = va_arg(lst, int);
+				if (spec->width < 0)
+				{
+					spec->zero_less_flag = LESS;
+					spec->width = -(spec->width);
+				}
+				i_str++;
 			}
-			i_str++;
 		}
-		if (ft_isdigit(str[i_str]))
+		else if (ft_isdigit(str[i_str]))
 		{	
 			spec->width = ft_atoi(str + i_str);
 			while (ft_isdigit(str[i_str]))
@@ -101,10 +107,11 @@ void ft_get_precision_and_size(const char *str, va_list arg_lst, t_spec *spec)
 	{
 		if (str[i_str] == '.')
 		{
+			i_str++;
 			spec->precision = 1;
-			while (str[i_str + 1] == '*')
+			while (str[i_str] == '*')
 			{
-				spec->size = va_arg(arg_lst, unsigned int);
+				spec->size = va_arg(arg_lst, int);
 				if (spec->size < 0)
 				{
 					spec->zero_less_flag = LESS;
@@ -113,19 +120,20 @@ void ft_get_precision_and_size(const char *str, va_list arg_lst, t_spec *spec)
 				}
 				i_str++;
 			}
-			if (ft_isdigit(str[i_str + 1]))
-				spec->size = ft_atoi(str + i_str + 1);
-			else if (!ft_is_printf_type(str[i_str + 1]))
+			if (ft_isdigit(str[i_str]))
+				spec->size = ft_atoi(str + i_str);
+			else if (str[i_str] == '-')
 			{
-				ft_get_flags(str + i_str + 1, spec);
-				ft_get_width(str + i_str + 1, arg_lst, spec);
+				spec->zero_less_flag = LESS;
+				spec->width = spec->size;
 				spec->precision = 0;
 			}
+			else if (str[i_str] != '.' && str[i_str] != '-')
+				break ;
 		}
-		i_str++;
+		else
+			i_str++;
 	}
-	if (spec->precision == 1 && spec->zero_less_flag == ZERO) 
-		spec->zero_less_flag = NO_FLAG_ZERO_LESS;
 }
 
 void	ft_get_arg_as_a_string(va_list lst, t_spec *spec)
