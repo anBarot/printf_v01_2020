@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 13:16:56 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/08 16:50:22 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/20 11:23:41 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_printf(const char *str, ...)
 	while (str[i_str])
 	{
 		if (str[i_str] != '%' && str[i_str])
-		{	
+		{
 			ft_putchar_fd(str[i_str], 1);
 			to_return++;
 		}
@@ -44,7 +44,7 @@ int	ft_printf(const char *str, ...)
 int	ft_is_printf_type(char c)
 {
 	if (c == 'n' || c == 'f' || c == 'g' || c == 'e' || c == 'c' || c == 's' ||
-		c == 'p' || c == 'd' || c == 'i' || c == 'u' || c == 'x' || c == 'X' || 
+		c == 'p' || c == 'd' || c == 'i' || c == 'u' || c == 'x' || c == 'X' ||
 		c == '%')
 		return (1);
 	else

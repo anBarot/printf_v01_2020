@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 13:19:04 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/08 16:55:20 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/20 10:46:40 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ enum			type_enum
 	UNSIGNED_INT,
 	PERC,
 	FLOAT,
-	SCI_NOTATION
+	// SCI_NOTATION
 };
 int			ft_printf(const char *str, ...);
 int			ft_is_printf_type(char c);

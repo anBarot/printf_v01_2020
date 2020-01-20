@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   apply_spec.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/20 11:20:00 by abarot            #+#    #+#             */
+/*   Updated: 2020/01/20 11:20:41 by abarot           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libftprintf.h"
 
 void	ft_apply_spec(t_spec *spec)
@@ -16,7 +28,8 @@ void	ft_apply_precision(t_spec *spec)
 	(spec->type == STRING) ? ft_apply_precision_string(spec) : 0;
 	(spec->type == ADDRESS) ? ft_apply_precision_address(spec) : 0;
 	(spec->type == FLOAT) ? ft_apply_precision_float(spec) : 0;
-	(spec->type == SCI_NOTATION) ? ft_apply_precision_float(spec) : 0;
-	(spec->type == UNSIGNED_INT || spec->type == SIGNED_INT || spec->type == HEXADEC
-	|| spec->type == CAP_HEXADEC) ? ft_apply_precision_number(spec) : 0;
+	// (spec->type == SCI_NOTATION) ? ft_apply_precision_float(spec) : 0;
+	(spec->type == UNSIGNED_INT || spec->type == SIGNED_INT ||
+		spec->type == HEXADEC || spec->type == CAP_HEXADEC) ?
+		ft_apply_precision_number(spec) : 0;
 }

@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 17:31:34 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/08 15:42:35 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/20 10:46:32 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,5 @@ char				*ft_toupper_string(char *str);
 char				*ft_ftoa(double fl);
 char				*ft_rounded_ascii(char *str);
 char				*ft_ltoa(long long n);
-char				*ft_scinottoa(double fl);
+// char				*ft_scinottoa(double fl);
 #endif

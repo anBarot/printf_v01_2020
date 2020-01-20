@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_rounded_ascii.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/20 11:26:36 by abarot            #+#    #+#             */
+/*   Updated: 2020/01/20 11:27:15 by abarot           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_rounded_ascii(char *str)
@@ -15,7 +27,7 @@ char	*ft_rounded_ascii(char *str)
 	while (i_str)
 	{
 		if (str[i_str - 1] >= '0' && str[i_str - 1] < '9')
-		{	
+		{
 			(str[i_str] != '.') ? str[i_str] = '0' : 0;
 			str[i_str - 1] += 1;
 			break ;

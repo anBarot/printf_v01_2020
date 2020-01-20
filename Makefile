@@ -6,7 +6,7 @@
 #    By: abarot <abarot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/15 12:18:43 by abarot            #+#    #+#              #
-#    Updated: 2020/01/08 13:09:15 by abarot           ###   ########.fr        #
+#    Updated: 2020/01/20 10:43:33 by abarot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,7 @@ all	:
 		@make $(NAME)
 		
 %.o : %.c
-		gcc $(CFLAGS) -c $< -o $@ -I$(INCLUDE) -L$(LIB_PATH) -l$(LIB)
+		gcc $(CFLAGS) -c $< -o $@ -I$(INCLUDE)
 
 $(NAME)	: $(OBJS) $(OBJS_LIB)	
 		ar -rc $(NAME) $(OBJS) $(OBJS_LIB)		

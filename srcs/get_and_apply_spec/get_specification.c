@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 16:22:59 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/08 17:00:27 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/20 11:29:21 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,7 @@ void	ft_get_arg_as_a_string(va_list lst, t_spec *spec)
 	(spec->type == ADDRESS) ? spec->arg_as_a_string = ft_addtoa(va_arg(lst, unsigned long)) : 0;
 	(spec->type == PERC) ? spec->arg_as_a_string = ft_char_to_string('%') : 0;
 	(spec->type == FLOAT) ? spec->arg_as_a_string = ft_ftoa((va_arg(lst, double))) : 0;
-	(spec->type == SCI_NOTATION) ? spec->arg_as_a_string = ft_scinottoa((va_arg(lst, double))) : 0;
+	// (spec->type == SCI_NOTATION) ? spec->arg_as_a_string = ft_scinottoa((va_arg(lst, double))) : 0;
 	if ((spec->type == CAP_HEXADEC || spec->type == HEXADEC) && 
 			spec-> hashtag_flag == 1 && *spec->arg_as_a_string == '0')
 		spec->hashtag_flag = 0;
