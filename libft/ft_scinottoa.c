@@ -2,45 +2,38 @@
 
 char	*ft_scinottoa(double n)
 {
-	char			*res;
-	signed	int		exponent;
+	char	*res;
+	int		exponent;
+	int		sign;
 
 	exponent = 0;
+	sign = 1;
 	if (n == (double)0)
 		return (res = ft_strdup("0.000000e+00"));
-	if (n < 1)
+	if (n < (double)0)
 	{
-		exponent++;
-		while (n < 1)
+		n = -n;
+		sign = -1;
+	} 
+	if (n < (double)1)
+	{
+		while (n < (double)1)
 		{
 			exponent--;
 			n *= 10;
 		}
 	}
-	printf("\nnumber n : %f\n", n);
-	while (n >= 10)
+	while (n > (double)9.9999999)
 	{
 		exponent++;
 		n /= 10;
 	}
-	res = ft_strjoin(ft_ftoa(n), "e", 1);
-	if (exponent > 0 && exponent < 100) 
+	res = ft_strjoin(ft_ftoa(n * sign), "e", 1);
+	if (exponent > 0 && exponent < 10) 
 		res = ft_strjoin(ft_strjoin(res, "+", 1), ft_strjoin("0", ft_itoa(exponent), 2), 3);
+	else if (exponent > 0) 
+		res = ft_strjoin(ft_strjoin(res, "+", 1), ft_itoa(exponent), 3);
 	else if (exponent < 0)
 		res = ft_strjoin(res, ft_itoa(exponent), 3);
 	return (res);
 }
-
-// int main()
-// {
-// 	printf("\nres 1 : |%e|\n", 0);
-// 	printf("\nres 2 : |%s|\n", ft_scinottoa(0));
-// 	printf("\nres 1 : |%e|\n", 1234.5678);
-// 	printf("\nres 2 : |%s|\n", ft_scinottoa(1234.5678));
-// 	printf("\nres 1 : |%e|\n", 10000000000000);
-// 	printf("\nres 2 : |%s|\n", ft_scinottoa(10000000000000));
-// 	printf("\nres 1 : |%e|\n", 99999.9999999);
-// 	printf("\nres 2 : |%s|\n", ft_scinottoa(99999.9999999));
-// 	printf("\nres 1 : |%e|\n", 0.00000000001);
-// 	printf("\nres 2 : |%s|\n", ft_scinottoa(0.00000000001));
-// }

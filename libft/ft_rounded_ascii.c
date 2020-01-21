@@ -48,12 +48,12 @@ char	*ft_rounded_ascii(char *str)
 			str = ft_strjoin("+", str, 2);
 			break ;
 		}
-		i_str--;
-		if (!i_str && str[i_str] == '9')
+		if (!(i_str - 1) && str[i_str - 1] == '9')
 		{
-			str[i_str] = '0';
+			str[i_str - 1] = '0';
 			str = ft_strjoin("1", str, 2);
 		}
+		i_str--;
 	}
 	str[ft_strlen(str) - 1] = '\0';
 	return (str);
