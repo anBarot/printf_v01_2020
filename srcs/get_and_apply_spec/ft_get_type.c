@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 15:31:49 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/21 15:32:11 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/21 16:31:07 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ft_get_type(const char *str, t_spec *spec)
 		(str[i_str] == '%') ? spec->type = PERC : 0;
 		(str[i_str] == 's') ? spec->type = STRING : 0;
 		(str[i_str] == 'f') ? spec->type = FLOAT : 0;
+		(str[i_str] == 'e') ? spec->type = SCI_NOTATION : 0;
 		i_str++;
 	}
 }

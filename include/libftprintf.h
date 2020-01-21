@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 13:19:04 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/21 15:42:34 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/21 17:56:08 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,5 @@ void					ft_apply_precision(t_spec *spec);
 void					ft_apply_precision_address(t_spec *spec);
 void					ft_apply_precision_number(t_spec *spec);
 void					ft_apply_precision_string(t_spec *spec);
-void					ft_apply_precision_float(t_spec *spec);
 void					ft_display_char_is_zero(t_spec *spec);
 #endif

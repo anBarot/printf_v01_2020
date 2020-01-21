@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 10:16:04 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/21 14:13:46 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/21 17:20:40 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -920,20 +920,20 @@ void	test29(void)
 	res1 = ft_printf("test |+0e| : |%+0e|\n", 0);
 	res2 = printf("test |+0e| : |%+0e|\n", 0);
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
-	res1 = ft_printf("test |+04e| : |%+04e|\n", 21.21579999);
-	res2 = printf("test |+04e| : |%+04e|\n", 21.21579999);
+	res1 = ft_printf("test |+04e| : |%+04e|\n", 21.21579);
+	res2 = printf("test |+04e| : |%+04e|\n", 21.21579);
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
-	res1 = ft_printf("test |+06e| : |%+06e|\n", 21.21579999);
-	res2 = printf("test |+06e| : |%+06e|\n", 21.21579999);
+	res1 = ft_printf("test |+06e| : |%+06e|\n", 21.21579);
+	res2 = printf("test |+06e| : |%+06e|\n", 21.21579);
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
-	res1 = ft_printf("test |+010e| : |%+010e|\n", 21.21579999);
-	res2 = printf("test |+010e| : |%+010e|\n", 21.21579999);
+	res1 = ft_printf("test |+010e| : |%+010e|\n", 21.21579);
+	res2 = printf("test |+010e| : |%+010e|\n", 21.21579);
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
-	res1 = ft_printf("test |+0000010e| : |%+0000010e|\n", 21.21579999);
-	res2 = printf("test |+0000010e| : |%+0000010e|\n", 21.21579999);
+	res1 = ft_printf("test |+0000010e| : |%+0000010e|\n", 21.215799);
+	res2 = printf("test |+0000010e| : |%+0000010e|\n", 21.215799);
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
-	res1 = ft_printf("test |0e| : |%0e|\n", -21.21579999);
-	res2 = printf("test |0e| : |%0e|\n", -21.21579999);
+	res1 = ft_printf("test |0e| : |%0e|\n", -21.215799);
+	res2 = printf("test |0e| : |%0e|\n", -21.215799);
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 	res1 = ft_printf("test |010e| : |%010e|\n", 21.21579999);
 	res2 = printf("test |010e| : |%010e|\n", 21.21579999);

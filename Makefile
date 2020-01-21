@@ -6,7 +6,7 @@
 #    By: abarot <abarot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/15 12:18:43 by abarot            #+#    #+#              #
-#    Updated: 2020/01/21 15:46:12 by abarot           ###   ########.fr        #
+#    Updated: 2020/01/21 17:55:45 by abarot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,16 +23,15 @@ SRCS	=	srcs/ft_printf.c \
 			srcs/get_and_apply_spec/ft_arg_is_neg.c \
 			srcs/get_and_apply_spec/ft_get_arg_as_a_string.c \
 			srcs/get_and_apply_spec/ft_spec_is_valid.c \
-			srcs/width/ft_apply_hashtag.c \
-			srcs/width/ft_apply_less.c \
-			srcs/width/ft_apply_no_flag.c \
-			srcs/width/ft_apply_plus.c \
-			srcs/width/ft_apply_space.c \
-			srcs/width/ft_apply_zero.c \
+			srcs/width_and_flag/ft_apply_hashtag.c \
+			srcs/width_and_flag/ft_apply_less.c \
+			srcs/width_and_flag/ft_apply_no_flag.c \
+			srcs/width_and_flag/ft_apply_plus.c \
+			srcs/width_and_flag/ft_apply_space.c \
+			srcs/width_and_flag/ft_apply_zero.c \
 			srcs/precision/ft_apply_precision_address.c \
 			srcs/precision/ft_apply_precision_number.c \
-			srcs/precision/ft_apply_precision_string.c \
-			srcs/precision/ft_apply_precision_float.c 
+			srcs/precision/ft_apply_precision_string.c 
 
 SRCS_LIB	=	libft/ft_memset.c libft/ft_bzero.c libft/ft_memcpy.c libft/ft_memccpy.c \
 				libft/ft_memmove.c libft/ft_memchr.c libft/ft_memcmp.c libft/ft_strlen.c \
