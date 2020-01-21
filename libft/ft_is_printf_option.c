@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_apply_space.c                                   :+:      :+:    :+:   */
+/*   ft_is_printf_option.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/20 11:22:25 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/21 15:46:55 by abarot           ###   ########.fr       */
+/*   Created: 2020/01/21 14:33:08 by abarot            #+#    #+#             */
+/*   Updated: 2020/01/21 14:33:28 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-void	ft_apply_space(t_spec *spec)
+int	ft_is_printf_option(char c)
 {
-	if (spec->arg_str[0] != '-' && spec->type == SIGNED_INT)
-		spec->arg_str = ft_strjoin(" ", spec->arg_str, 2);
+	if (ft_is_printf_type(c) || c == '-' || c == '+' || c == ' ' || c == '*' ||
+	ft_isdigit(c) || c == '#' || c == '.')
+		return (1);
+	return (0);
 }

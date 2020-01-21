@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 17:31:34 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/20 10:46:32 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/21 15:38:58 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+
 int					ft_atoi(const char *s);
 void				ft_bzero(void *s, size_t n);
 void				*ft_calloc(size_t num, size_t size);
@@ -53,10 +54,12 @@ char				*ft_reverse_string(char *s);
 char				*ft_utoa(unsigned int n);
 char				*ft_addtoa(unsigned long n);
 char				*ft_hextoa(unsigned int n);
-char				*ft_char_to_string(int c);
+char				*ft_char_to_str(int c);
 char				*ft_toupper_string(char *str);
 char				*ft_ftoa(double fl);
 char				*ft_rounded_ascii(char *str);
 char				*ft_ltoa(long long n);
-// char				*ft_scinottoa(double fl);
+int					ft_is_printf_type(char c);
+int					ft_is_printf_option(char c);
+char				*ft_scinottoa(double fl);
 #endif

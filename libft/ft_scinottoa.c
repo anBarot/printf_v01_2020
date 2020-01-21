@@ -1,4 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_scinottoa.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/21 13:52:35 by abarot            #+#    #+#             */
+/*   Updated: 2020/01/21 14:10:31 by abarot           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
+
+char	*ft_get_exponent(char *res, int exponent)
+{
+	if (exponent >= 0 && exponent < 10)
+		res = ft_strjoin(ft_strjoin(res, "+", 1),
+		ft_strjoin("0", ft_itoa(exponent), 2), 3);
+	else if (exponent > 0)
+		res = ft_strjoin(ft_strjoin(res, "+", 1), ft_itoa(exponent), 3);
+	else if (exponent < 0)
+		res = ft_strjoin(res, ft_itoa(exponent), 3);
+	return (res);
+}
 
 char	*ft_scinottoa(double n)
 {
@@ -14,14 +38,11 @@ char	*ft_scinottoa(double n)
 	{
 		n = -n;
 		sign = -1;
-	} 
-	if (n < (double)1)
+	}
+	while (n < (double)1)
 	{
-		while (n < (double)1)
-		{
-			exponent--;
-			n *= 10;
-		}
+		exponent--;
+		n *= 10;
 	}
 	while (n > (double)9.9999999)
 	{
@@ -29,11 +50,5 @@ char	*ft_scinottoa(double n)
 		n /= 10;
 	}
 	res = ft_strjoin(ft_ftoa(n * sign), "e", 1);
-	if (exponent > 0 && exponent < 10) 
-		res = ft_strjoin(ft_strjoin(res, "+", 1), ft_strjoin("0", ft_itoa(exponent), 2), 3);
-	else if (exponent > 0) 
-		res = ft_strjoin(ft_strjoin(res, "+", 1), ft_itoa(exponent), 3);
-	else if (exponent < 0)
-		res = ft_strjoin(res, ft_itoa(exponent), 3);
-	return (res);
+	return (res = ft_get_exponent(res, exponent));
 }

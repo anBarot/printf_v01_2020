@@ -6,13 +6,13 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 11:25:33 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/20 11:25:34 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/21 15:38:58 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_char_to_string(int c)
+char	*ft_char_to_str(int c)
 {
 	char	*res;
 

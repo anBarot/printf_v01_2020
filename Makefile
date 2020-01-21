@@ -6,7 +6,7 @@
 #    By: abarot <abarot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/15 12:18:43 by abarot            #+#    #+#              #
-#    Updated: 2020/01/20 13:46:22 by abarot           ###   ########.fr        #
+#    Updated: 2020/01/21 15:46:12 by abarot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,13 @@ NAME	=	libftprintf.a
 SRCS	=	srcs/ft_printf.c \
 			srcs/get_and_apply_spec/apply_spec.c \
 			srcs/get_and_apply_spec/create_formated_string.c \
-			srcs/get_and_apply_spec/get_specification.c \
+			srcs/get_and_apply_spec/ft_initialyse_spec.c \
+			srcs/get_and_apply_spec/ft_get_type.c \
+			srcs/get_and_apply_spec/ft_get_flags.c \
+			srcs/get_and_apply_spec/ft_get_width.c \
+			srcs/get_and_apply_spec/ft_get_precision_and_size.c \
+			srcs/get_and_apply_spec/ft_arg_is_neg.c \
+			srcs/get_and_apply_spec/ft_get_arg_as_a_string.c \
 			srcs/get_and_apply_spec/ft_spec_is_valid.c \
 			srcs/width/ft_apply_hashtag.c \
 			srcs/width/ft_apply_less.c \
@@ -38,7 +44,9 @@ SRCS_LIB	=	libft/ft_memset.c libft/ft_bzero.c libft/ft_memcpy.c libft/ft_memccpy
 				libft/ft_itoa.c libft/ft_strmapi.c libft/ft_putchar_fd.c libft/ft_putstr_fd.c  \
 				libft/ft_putendl_fd.c libft/ft_putnbr_fd.c libft/ft_toupper_string.c \
 				libft/ft_reverse_string.c libft/ft_hextoa.c libft/ft_addtoa.c libft/ft_char_to_str.c \
-				libft/ft_utoa.c libft/ft_ftoa.c libft/ft_ltoa.c libft/ft_rounded_ascii.c
+				libft/ft_utoa.c libft/ft_ftoa.c libft/ft_ltoa.c libft/ft_rounded_ascii.c \
+				libft/ft_is_printf_type.c libft/ft_is_printf_option.c \
+				libft/ft_scinottoa.c
 
 OBJS		=	$(SRCS:.c=.o)
 
