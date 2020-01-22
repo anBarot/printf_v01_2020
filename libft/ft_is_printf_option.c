@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 14:33:08 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/21 14:33:28 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/22 16:56:38 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int	ft_is_printf_option(char c)
 {
-	if (ft_is_printf_type(c) || c == '-' || c == '+' || c == ' ' || c == '*' ||
-	ft_isdigit(c) || c == '#' || c == '.')
+	if (ft_is_printf_type(c) || c == '-' || c == '+' || c == ' ' || c == '*'
+	|| ft_isdigit(c) || c == '#' || c == '.'|| c == 'l' || c == 'll' || c == 'h'
+	|| c == 'hh')
 		return (1);
 	return (0);
 }

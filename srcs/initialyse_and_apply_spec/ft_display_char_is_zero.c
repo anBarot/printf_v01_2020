@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_specification.c                                :+:      :+:    :+:   */
+/*   ft_display_char_is_zero.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/08 16:22:59 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/21 15:32:22 by abarot           ###   ########.fr       */
+/*   Created: 2020/01/22 16:17:46 by abarot            #+#    #+#             */
+/*   Updated: 2020/01/22 16:18:28 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_initialyse_spec(t_spec *spec)
+void	ft_display_char_is_zero(t_spec *spec)
 {
-	spec->type = ERROR;
-	spec->zero_less_flag = NO_FLAG_ZERO_LESS;
-	spec->space_plus_flag = NO_FLAG_SPACE_PLUS;
-	spec->hashtag_flag = 0;
-	spec->width = 0;
-	spec->precision = 0;
-	spec->size = 0;
+	spec->width ? spec->width-- : 0;
+	if (spec->zero_less_flag == LESS)
+	{
+		ft_putchar_fd(0, 1);
+		ft_putstr_fd(spec->arg_str, 1);
+	}
+	else
+	{
+		ft_putstr_fd(spec->arg_str, 1);
+		ft_putchar_fd(0, 1);
+	}
 }

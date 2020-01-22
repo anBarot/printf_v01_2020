@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_apply_hashtag.c                                 :+:      :+:    :+:   */
+/*   ft_get_arg_str_l.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/20 11:21:17 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/22 14:36:45 by abarot           ###   ########.fr       */
+/*   Created: 2020/01/21 15:27:34 by abarot            #+#    #+#             */
+/*   Updated: 2020/01/22 17:43:31 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_apply_hashtag(t_spec *spec)
+void	ft_get_arg_str_l(va_list lst, t_spec *spec)
 {
-	if (spec->type == HEXADEC)
-		spec->arg_str = ft_strjoin("0x", spec->arg_str, 2);
-	else if (spec->type == CAP_HEXADEC)
-		spec->arg_str = ft_strjoin("0X", spec->arg_str, 2);
+	ft_get_arg_as_a_string(lst, spec);
 }

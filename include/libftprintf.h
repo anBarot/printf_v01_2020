@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 13:19:04 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/22 13:54:59 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/22 17:38:34 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct			s_spec
 	int					zero_less_flag;
 	int					space_plus_flag;
 	int					hashtag_flag;
+	int					l_ll_h_hh_flag;
 	int					width;
 	int					precision;
 	int					size;
@@ -37,6 +38,14 @@ enum					e_space_plus_flag
 	NO_FLAG_SPACE_PLUS,
 	SPACE,
 	PLUS
+};
+enum					e_l_ll_h_hh_flag
+{
+	NO_FLAG_L_LL_H_HH,
+	L,
+	LL,
+	H,
+	HH
 };
 enum					e_type
 {
@@ -80,4 +89,9 @@ void					ft_apply_precision_string(t_spec *spec);
 void					ft_apply_precision_float(t_spec *spec);
 void					ft_apply_precision_scinot(t_spec *spec);
 void					ft_display_char_is_zero(t_spec *spec);
+void					ft_get_arg_as_a_string_llhh(va_list lst, t_spec *spec);
+void					ft_get_arg_str_l(va_list lst, t_spec *spec);
+void					ft_get_arg_str_ll(va_list lst, t_spec *spec);
+void					ft_get_arg_str_h(va_list lst, t_spec *spec);
+void					ft_get_arg_str_hh (va_list lst, t_spec *spec);
 #endif

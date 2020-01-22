@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 11:25:40 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/22 12:15:06 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/22 15:29:04 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*ft_ftoa(double fl, int size)
 	signif_dig = size;
 	ft_get_size_and_sign_digit(fl, &size, &signif_dig);
 	if (fl == 0 || fl > 100000000000000000 ||
-		ft_strlen(ft_itoa(fl * 1000000)) == 1)
+		(fl > 0 && fl < 0.000000000000000001))
 		return (ft_strdup("0.000000"));
 	while (fl < 100000000000000000 && i < signif_dig - 1)
 	{
@@ -55,6 +55,6 @@ char	*ft_ftoa(double fl, int size)
 		res = ft_strjoin(res, "0", 1);
 	res_dec = ft_strdup(res + ft_strlen(res) - size);
 	res[ft_strlen(res) - size] = '\0';
-	res = ft_strjoin(ft_strjoin(res, ft_strdup("."), 3), res_dec, 3);
+	res = ft_strjoin(ft_strjoin(res, ".", 1), res_dec, 3);
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 16:19:14 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/21 15:38:58 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/22 15:03:55 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char		*ft_itoa(int n)
 	int			i;
 	long int	nbr;
 
+	if (!n)
+		return (ft_char_to_str('0'));
 	if (!(res = (char*)malloc(sizeof(char) * 12)))
 		return (0);
 	nbr = n;
@@ -27,8 +29,6 @@ char		*ft_itoa(int n)
 		res[i++] = '-';
 		nbr = -nbr;
 	}
-	if (!nbr)
-		return (ft_char_to_str('0'));
 	while (nbr >= 1)
 	{
 		res[i] = (nbr % 10) + 48;

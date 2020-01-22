@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 10:16:04 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/22 13:37:13 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/22 17:54:54 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -991,6 +991,119 @@ void	test29(void)
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 }
 
+void test30(void)
+{
+	int i = 21;
+	res1 = ft_printf("\ntest 1 |li| : |%li|\n", -2422);
+	res2 = printf("\ntest 1 |li| : |%li|\n", -2422);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("\ntest 2 |lc| : |%lc|\n", 233);
+	res2 = printf("\ntest 2 |lc| : |%lc|\n", 233);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("\ntest 3 |ls| : |%ls|\n", "bonjour!");
+	res2 = printf("\ntest 3 |ls| : |%ls|\n", "bonjour!");
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("\ntest 4 |lu| : |%lu|\n", 25255);
+	res2 = printf("\ntest 4 |lu| : |%lu|\n", 25255);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("\ntest 5 |lx| : |%lx|\n", 25255);
+	res2 = printf("\ntest 5 |lx| : |%lx|\n", 25255);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("\ntest 6 |lX| : |%lX|\n", 25255);
+	res2 = printf("\ntest 6 |lX| : |%lX|\n", 25255);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("\ntest 7 |l%%| : |%l%|\n");
+	res2 = printf("\ntest 7 |l%%| : |%l%|\n");
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("\ntest 8 |lf| : |%lf|\n", 22.2422);
+	res2 = printf("\ntest 8 |lf| : |%lf|\n", 22.2422);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("\ntest 9 |le| : |%le|\n", 22.2422);
+	res2 = printf("\ntest 9 |le| : |%le|\n", 22.2422);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("\ntest 10 |lp| : |%lp|\n", i);
+	res2 = printf("\ntest 10 |lp| : |%lp|\n", i);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+}
+
+void test31(void)
+{
+	int i = 21;
+	res1 = ft_printf("\ntest 1 |lli| : |%lli|\n", -2422);
+	res2 = printf("\ntest 1 |lli| : |%lli|\n", -2422);
+	res1 = ft_printf("\ntest 2 |llc| : |%llc|\n", 233);
+	res2 = printf("\ntest 2 |llc| : |%llc|\n", 233);
+	res1 = ft_printf("\ntest 3 |lls| : |%lls|\n", "bonjour!");
+	res2 = printf("\ntest 3 |lls| : |%lls|\n", "bonjour!");
+	res1 = ft_printf("\ntest 4 |llu| : |%llu|\n", 25255);
+	res2 = printf("\ntest 4 |llu| : |%llu|\n", 25255);
+	res1 = ft_printf("\ntest 5 |llx| : |%llx|\n", 25255);
+	res2 = printf("\ntest 5 |llx| : |%llx|\n", 25255);
+	res1 = ft_printf("\ntest 6 |llX| : |%llX|\n", 25255);
+	res2 = printf("\ntest 6 |llX| : |%llX|\n", 25255);
+	res1 = ft_printf("\ntest 7 |ll%%| : |%ll%|\n");
+	res2 = printf("\ntest 7 |ll%%| : |%ll%|\n");
+	res1 = ft_printf("\ntest 8 |llf| : |%llf|\n", 22.2422);
+	res2 = printf("\ntest 8 |llf| : |%llf|\n", 22.2422);
+	res1 = ft_printf("\ntest 9 |lle| : |%lle|\n", 22.2422);
+	res2 = printf("\ntest 9 |lle| : |%lle|\n", 22.2422);
+	res1 = ft_printf("\ntest 10 |llp| : |%llp|\n", i);
+	res2 = printf("\ntest 10 |llp| : |%llp|\n", i);
+}
+
+void test32(void)
+{
+	int i = 21;
+	res1 = ft_printf("\ntest 1 |hi| : |%hi|\n", -2422);
+	res2 = printf("\ntest 1 |hi| : |%hi|\n", -2422);
+	res1 = ft_printf("\ntest 2 |hc| : |%hc|\n", 233);
+	res2 = printf("\ntest 2 |hc| : |%hc|\n", 233);
+	res1 = ft_printf("\ntest 3 |hs| : |%hs|\n", "bonjour!");
+	res2 = printf("\ntest 3 |hs| : |%hs|\n", "bonjour!");
+	res1 = ft_printf("\ntest 4 |hu| : |%hu|\n", 25255);
+	res2 = printf("\ntest 4 |hu| : |%hu|\n", 25255);
+	res1 = ft_printf("\ntest 5 |hx| : |%hx|\n", 25255);
+	res2 = printf("\ntest 5 |hx| : |%hx|\n", 25255);
+	res1 = ft_printf("\ntest 6 |hX| : |%hX|\n", 25255);
+	res2 = printf("\ntest 6 |hX| : |%hX|\n", 25255);
+	res1 = ft_printf("\ntest 7 |h%%| : |%h%|\n");
+	res2 = printf("\ntest 7 |h%%| : |%h%|\n");
+	res1 = ft_printf("\ntest 8 |hf| : |%hf|\n", 22.2422);
+	res2 = printf("\ntest 8 |hf| : |%hf|\n", 22.2422);
+	res1 = ft_printf("\ntest 9 |he| : |%he|\n", 22.2422);
+	res2 = printf("\ntest 9 |he| : |%he|\n", 22.2422);
+	res1 = ft_printf("\ntest 10 |hp| : |%hp|\n", i);
+	res2 = printf("\ntest 10 |hp| : |%hp|\n", i);
+}
+
+void test33(void)
+{
+	int i = 21;
+	res1 = ft_printf("\ntest 1 |hhi| : |%hhi|\n", -2422);
+	res2 = printf("\ntest 1 |hhi| : |%hhi|\n", -2422);
+	res1 = ft_printf("\ntest 2 |hhc| : |%hhc|\n", 233);
+	res2 = printf("\ntest 2 |hhc| : |%hhc|\n", 233);
+	res1 = ft_printf("\ntest 3 |hhs| : |%hhs|\n", "bonjour!");
+	res2 = printf("\ntest 3 |hhs| : |%hhs|\n", "bonjour!");
+	res1 = ft_printf("\ntest 4 |hhu| : |%hhu|\n", 25255);
+	res2 = printf("\ntest 4 |hhu| : |%hhu|\n", 25255);
+	res1 = ft_printf("\ntest 5 |hhx| : |%hhx|\n", 25255);
+	res2 = printf("\ntest 5 |hhx| : |%hhx|\n", 25255);
+	res1 = ft_printf("\ntest 6 |hhX| : |%hhX|\n", 25255);
+	res2 = printf("\ntest 6 |hhX| : |%hhX|\n", 25255);
+	res1 = ft_printf("\ntest 7 |hh%%| : |%hh%|\n");
+	res2 = printf("\ntest 7 |hh%%| : |%hh%|\n");
+	res1 = ft_printf("\ntest 8 |hhf| : |%hhf|\n", 22.2422);
+	res2 = printf("\ntest 8 |hhf| : |%hhf|\n", 22.2422);
+	res1 = ft_printf("\ntest 9 |hhe| : |%hhe|\n", 22.2422);
+	res2 = printf("\ntest 9 |hhe| : |%hhe|\n", 22.2422);
+	res1 = ft_printf("\ntest 10 |hhp| : |%hhp|\n", i);
+	res2 = printf("\ntest 10 |hhp| : |%hhp|\n", i);
+
+}
+
+
+
 int main(int ac, char **av)
 {
 	if (ac == 1 || atoi(av[1]) == 1 )
@@ -998,196 +1111,226 @@ int main(int ac, char **av)
 		printf("test1, string simple :\n");
 		test1();
 		printf("\n\n------------\n\n");
-	}
+	
+
+ }
 
 	if (ac == 1 || atoi(av[1]) == 2 )
 	{
 		printf("test2, argument string :\n");
 		test2();
 		printf("\n\n------------\n\n");
-	}
+	
+
+ }
 
 	if (ac == 1 || atoi(av[1]) == 3 )
 	{
 		printf("test3, argument int d :\n");
 		test3();
 		printf("\n\n------------\n\n");
-	}
+		
+	 }
 
 	if (ac == 1 || atoi(av[1]) == 4 )
 	{
 		printf("test4, argument char :\n");
 		test4();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 5 )
 	{
 		printf("test5, argument int i :\n");
 		test5();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 6 )
 	{
 		printf("test6, argument unsigned int :\n");
 		test6();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 7 )
 	{
 		printf("test7, argument address :\n");
 		test7();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 8 )
 	{
 		printf("test8, argument x :\n");
 		test8();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 9 )
 	{
 		printf("test9, argument X :\n");
 		test9();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 10 )
 	{
 		printf("test10, argument %% :\n");
 		test10();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 11 )
 	{
 		printf("test11, all arguments type :\n");
 		test11();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 12 )
 	{
 		printf("test12, flag - :\n");
 		test12();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 13 )
 	{
 		printf("test13, flag 0 :\n");
 		test13();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 14 )
 	{
 		printf("test14, flag . :\n");
 		test14();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 15 )
 	{
 		printf("test15, flag * :\n");
 		test15();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 16 )
 	{
 		printf("test16, flags 0-*. with unsigned int :\n");
 		test16();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 17 )
 	{
 		printf("test17, flag 0 :\n");
 		test17();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 18 )
 	{
 		printf("test18, flags random :\n");
 		test18();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 19 )
 	{
 		printf("test19, flags string :\n");
 		test19();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 20 )
 	{
 		printf("test20, flags char :\n");
 		test20();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 21 )
 	{
 		printf("test21, flags address :\n");
 		test21();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 22 )
 	{
 		printf("test22, flags X :\n");
 		test22();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 23 )
 	{
 		printf("test23, flags x :\n");
 		test23();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 24 )
 	{
 		printf("test24, multiflags --, 00, .. :\n");
 		test24();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 25 )
 	{
 		printf("test25, + flag :\n");
 		test25();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 26 )
 	{
 		printf("test26, ' ' flag :\n");
 		test26();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 27 )
 	{
 		printf("test27, # flag :\n");
 		test27();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 28 )
 	{
 		printf("test28, float type :\n");
 		test28();
 		printf("\n\n------------\n\n");
-	}
+	
+ }
 
 	if (ac == 1 || atoi(av[1]) == 29 )
 	{
@@ -1197,9 +1340,31 @@ int main(int ac, char **av)
 	}
 
 	if (ac == 1 || atoi(av[1]) == 30 )
-	{}
+	{
+		printf("test30,  flag l :\n");
+		test30();
+		printf("\n\n------------\n\n");
+	}
 
 	if (ac == 1 || atoi(av[1]) == 31 )
-	{}
+	{
+		printf("test31,  flag ll :\n");
+		test31();
+		printf("\n\n------------\n\n");
+	}
+
+	if (ac == 1 || atoi(av[1]) == 32 )
+	{
+		printf("test32,  flag h :\n");
+		test32();
+		printf("\n\n------------\n\n");
+	}
+
+	if (ac == 1 || atoi(av[1]) == 33 )
+	{
+		printf("test33,  flag hh :\n");
+		test33();
+		printf("\n\n------------\n\n");
+	}
 	
 }

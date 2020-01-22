@@ -6,23 +6,24 @@
 #    By: abarot <abarot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/15 12:18:43 by abarot            #+#    #+#              #
-#    Updated: 2020/01/22 13:46:56 by abarot           ###   ########.fr        #
+#    Updated: 2020/01/22 17:02:45 by abarot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libftprintf.a
 
 SRCS	=	srcs/ft_printf.c \
-			srcs/get_and_apply_spec/apply_spec.c \
-			srcs/get_and_apply_spec/create_formated_string.c \
-			srcs/get_and_apply_spec/ft_initialyse_spec.c \
-			srcs/get_and_apply_spec/ft_get_type.c \
-			srcs/get_and_apply_spec/ft_get_flags.c \
-			srcs/get_and_apply_spec/ft_get_width.c \
-			srcs/get_and_apply_spec/ft_get_precision_and_size.c \
-			srcs/get_and_apply_spec/ft_arg_is_neg.c \
-			srcs/get_and_apply_spec/ft_get_arg_as_a_string.c \
-			srcs/get_and_apply_spec/ft_spec_is_valid.c \
+			srcs/initialyse_and_apply_spec/apply_spec.c \
+			srcs/initialyse_and_apply_spec/create_formated_string.c \
+			srcs/initialyse_and_apply_spec/ft_initialyse_spec.c \
+			srcs/initialyse_and_apply_spec/ft_display_char_is_zero.c \
+			srcs/initialyse_and_apply_spec/ft_spec_is_valid.c \
+			srcs/parse_functions/ft_get_type.c \
+			srcs/parse_functions/ft_get_flags.c \
+			srcs/parse_functions/ft_get_precision_and_size.c \
+			srcs/parse_functions/ft_get_arg_as_a_string.c \
+			srcs/parse_functions/ft_get_width.c \
+			srcs/parse_functions/ft_arg_is_neg.c \
 			srcs/width_and_flag/ft_apply_hashtag.c \
 			srcs/width_and_flag/ft_apply_less.c \
 			srcs/width_and_flag/ft_apply_no_flag.c \
@@ -33,7 +34,12 @@ SRCS	=	srcs/ft_printf.c \
 			srcs/precision/ft_apply_precision_number.c \
 			srcs/precision/ft_apply_precision_string.c \
 			srcs/precision/ft_apply_precision_float.c \
-			srcs/precision/ft_apply_precision_scinot.c 
+			srcs/precision/ft_apply_precision_scinot.c \
+			srcs/l_ll_h_hh_flag/ft_get_arg_as_a_string_llhh.c \
+			srcs/l_ll_h_hh_flag/ft_get_arg_str_l.c \
+			srcs/l_ll_h_hh_flag/ft_get_arg_str_ll.c \
+			srcs/l_ll_h_hh_flag/ft_get_arg_str_h.c \
+			srcs/l_ll_h_hh_flag/ft_get_arg_str_hh.c 
 
 SRCS_LIB	=	libft/ft_memset.c libft/ft_bzero.c libft/ft_memcpy.c libft/ft_memccpy.c \
 				libft/ft_memmove.c libft/ft_memchr.c libft/ft_memcmp.c libft/ft_strlen.c \
@@ -59,7 +65,7 @@ LIB		=	libft
 
 LIB_PATH	=	libft/
 
-CFLAGS	=	 -Wall -Wextra #-Werror
+CFLAGS	=	 -Wall -Wextra -Werror
 
 RM	=	rm -f
 

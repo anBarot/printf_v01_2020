@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 16:30:39 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/21 17:44:30 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/22 17:03:02 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int		ft_formated_string(const char *str, va_list arg_lst)
 	ft_get_width(str, arg_lst, spec);
 	ft_get_precision_and_size(str, arg_lst, spec);
 	ft_get_type(str, spec);
-	ft_get_arg_as_a_string(arg_lst, spec);
+	(!spec->l_ll_h_hh_flag) ? ft_get_arg_as_a_string(arg_lst, spec) : 0;
+	(spec->l_ll_h_hh_flag) ? ft_get_arg_as_a_string_llhh(arg_lst, spec) : 0;
 	ft_apply_spec(spec);
 	to_return = ft_strlen(spec->arg_str);
 	if (spec->type == CHAR_IS_ZERO)
@@ -38,19 +39,4 @@ int		ft_formated_string(const char *str, va_list arg_lst)
 	free(spec->arg_str);
 	free(spec);
 	return (to_return);
-}
-
-void	ft_display_char_is_zero(t_spec *spec)
-{
-	spec->width ? spec->width-- : 0;
-	if (spec->zero_less_flag == LESS)
-	{
-		ft_putchar_fd(0, 1);
-		ft_putstr_fd(spec->arg_str, 1);
-	}
-	else
-	{
-		ft_putstr_fd(spec->arg_str, 1);
-		ft_putchar_fd(0, 1);
-	}
 }

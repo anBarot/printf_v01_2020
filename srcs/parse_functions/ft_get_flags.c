@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 15:31:24 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/21 15:37:09 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/22 17:39:57 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,15 @@ void	ft_get_flags(const char *str, t_spec *spec)
 	{
 		if (str[i_str] == '0')
 			(spec->zero_less_flag != LESS) ? spec->zero_less_flag = ZERO : 0;
-		if (str[i_str] == '-')
-			spec->zero_less_flag = LESS;
-		if (str[i_str] == '+')
-			spec->space_plus_flag = PLUS;
+		(str[i_str] == '-') ? spec->zero_less_flag = LESS : 0;
+		(str[i_str] == '+') ? spec->space_plus_flag = PLUS : 0;
 		if (str[i_str] == ' ')
 			(!spec->space_plus_flag) ? spec->space_plus_flag = SPACE : 0;
-		if (str[i_str] == '#')
-			spec->hashtag_flag = 1;
+		(str[i_str] == '#') ? spec->hashtag_flag = 1 : 0;
+		(str[i_str++] == 'l') ? spec->l_ll_h_hh_flag = L : 0;
+		(str[i_str] == 'l') ? spec->l_ll_h_hh_flag = LL : 0;
+		(str[i_str++] == 'h') ? spec->l_ll_h_hh_flag = H : 0;
+		(str[i_str] == 'h') ? spec->l_ll_h_hh_flag = HH : 0;
 		while (ft_isdigit(str[i_str]))
 			i_str++;
 		if (str[i_str] && str[i_str] != '.' && !ft_is_printf_type(str[i_str]))
