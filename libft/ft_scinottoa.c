@@ -24,7 +24,7 @@ char	*ft_get_exponent(char *res, int exponent)
 	return (res);
 }
 
-char	*ft_scinottoa(double n)
+char	*ft_scinottoa(double n, int size)
 {
 	char	*res;
 	int		exponent;
@@ -32,6 +32,7 @@ char	*ft_scinottoa(double n)
 
 	exponent = 0;
 	sign = 1;
+	(size == 0) ? size = 6 : 0;
 	if (n == (double)0)
 		return (ft_strdup("0.000000e+00"));
 	if (n < (double)0)
@@ -44,11 +45,13 @@ char	*ft_scinottoa(double n)
 		exponent--;
 		n *= 10;
 	}
-	while (n > (double)9.9999999)
+	while (n > 9.9999999)
 	{
 		exponent++;
 		n /= 10;
 	}
-	res = ft_strjoin(ft_ftoa(n * sign), "e", 1);
+	res = ft_ftoa(n * sign, size + 1);
+	res[size + exponent + 1] = '\0';
+	res = ft_strjoin(res, "e", 1);
 	return (res = ft_get_exponent(res, exponent));
 }

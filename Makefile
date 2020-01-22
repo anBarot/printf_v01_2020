@@ -31,7 +31,8 @@ SRCS	=	srcs/ft_printf.c \
 			srcs/width_and_flag/ft_apply_zero.c \
 			srcs/precision/ft_apply_precision_address.c \
 			srcs/precision/ft_apply_precision_number.c \
-			srcs/precision/ft_apply_precision_string.c 
+			srcs/precision/ft_apply_precision_string.c \
+			srcs/precision/ft_apply_precision_float.c 
 
 SRCS_LIB	=	libft/ft_memset.c libft/ft_bzero.c libft/ft_memcpy.c libft/ft_memccpy.c \
 				libft/ft_memmove.c libft/ft_memchr.c libft/ft_memcmp.c libft/ft_strlen.c \
