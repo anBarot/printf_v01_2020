@@ -6,20 +6,28 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 11:25:40 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/21 18:02:04 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/22 12:15:06 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_adjust_significant_digit(double fl, int *significant_dig)
+void	ft_get_size_and_sign_digit(double fl, int *size, int *signif_dig)
 {
-	if (fl < 0)
-		fl = -fl;
-	while (fl >= 1)
-	{	
-		*significant_dig = *significant_dig + 1;
-		fl /= 10; 
+	if (*size == 0)
+	{
+		*size = 6;
+		*signif_dig = *size;
+	}
+	else
+	{
+		if (fl < 0)
+			fl = -fl;
+		while (fl >= 1)
+		{
+			*signif_dig = *signif_dig + 1;
+			fl /= 10;
+		}
 	}
 }
 
@@ -31,16 +39,8 @@ char	*ft_ftoa(double fl, int size)
 	int		signif_dig;
 
 	i = 0;
-	if (size == 0)  
-	{	
-		size = 6;
-		signif_dig = size;
-	}
-	else
-	{
-		signif_dig = size;
-		ft_adjust_significant_digit(fl, &signif_dig);
-	}
+	signif_dig = size;
+	ft_get_size_and_sign_digit(fl, &size, &signif_dig);
 	if (fl == 0 || fl > 100000000000000000 ||
 		ft_strlen(ft_itoa(fl * 1000000)) == 1)
 		return (ft_strdup("0.000000"));
