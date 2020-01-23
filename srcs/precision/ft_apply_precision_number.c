@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 11:24:16 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/21 15:46:55 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/23 16:52:00 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,14 @@ void	ft_apply_precision_number(t_spec *spec)
 {
 	if (spec->zero_less_flag == ZERO)
 		spec->zero_less_flag = NO_FLAG_ZERO_LESS;
-	if (spec->arg_str[0] == '0' && spec->size == 0)
+	if (spec->size == 0 && (spec->arg_str[0] == '0' ||
+		((spec->arg_str[0] == '+' || spec->arg_str[0] == ' ')
+		&& spec->arg_str[1] == '0')))
 	{
-		spec->arg_str[0] = '\0';
+		if (spec->arg_str[0] == '+' || spec->arg_str[0] == ' ')
+			spec->arg_str[1] = '\0';
+		else
+			spec->arg_str[0] = '\0';
 		return ;
 	}
 	else if ((spec->type == SIGNED_INT || spec->type == HEXADEC ||

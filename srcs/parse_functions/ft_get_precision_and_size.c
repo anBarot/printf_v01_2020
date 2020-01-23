@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 15:29:29 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/21 15:30:33 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/23 13:51:39 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ void	ft_get_precision_and_size(const char *str, va_list lst, t_spec *spec)
 			while (str[i_str] == '*')
 			{
 				spec->size = va_arg(lst, int);
-				(spec->size < 0) ? ft_arg_is_neg(spec->size, spec) : 0;
+				(spec->size < 0) ? spec->precision = 0 : 0;
 				i_str++;
 			}
 			if (ft_isdigit(str[i_str]))
 				spec->size = ft_atoi(str + i_str);
 			else if (str[i_str] == '-')
-				ft_arg_is_neg(-spec->size, spec);
+				spec->zero_less_flag = LESS;
 			else if (str[i_str] != '.' && str[i_str] != '-')
 				break ;
 		}

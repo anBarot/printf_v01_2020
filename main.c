@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 10:16:04 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/22 17:54:54 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/23 14:37:47 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -352,6 +352,15 @@ void	test15(void)
 	res1 = ft_printf("test |.*d| 8 : %.*d\n", 8, -2144);
 	res2 = printf("test |.*d| 8 : %.*d\n", 8, -2144);
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("test |.*d| -15 : |%10.*d|\n", -15, -2144);
+	res2 = printf("test |.*d| -15 : |%10.*d|\n", -15, -2144);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("test |.*d| 8 : |%*10.d|\n", -8, -2144);
+	res2 = printf("test |.*d| 8 : |%*10.d|\n", -8, -2144);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("test |.*d| 8 : |%*10.-d|\n", 8, -2144);
+	res2 = printf("test |.*d| 8 : |%*10.-d|\n", 8, -2144);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 }
 
 void	test16(void)
@@ -617,6 +626,12 @@ void	test21(void)
 	res1 = ft_printf("test 9 |20p| : |%20p|\n", &el);
 	res2 = printf("test 9 |20p| : |%20p|\n", &el);
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("test 9 |-16.p| : |%-16.p|\n", 0);
+	res2 = printf("test 9 |-16.p| : |%-16.p|\n", 0);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("test 9 |-16.p| : |%-16.0p|\n", 0);
+	res2 = printf("test 9 |-16.p| : |%-16.0p|\n", 0);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 }
 
 void	test22(void)
@@ -759,6 +774,12 @@ void	test25(void)
 	res1 = ft_printf("test |+010x| : |%+010x|\n", 2144);
 	res2 = printf("test |+010x| : |%+010x|\n", 2144);
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("test |+-4.d| : |%+-4.d|\n", 0);
+	res2 = printf("test |+-4.d| : |%+-4.d|\n", 0);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("test |+-4.x| : |%+-4.x|\n", 0);
+	res2 = printf("test |+-4.x| : |%+-4.x|\n", 0);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 }
 
 void	test26(void)
@@ -805,6 +826,12 @@ void	test26(void)
 	res1 = ft_printf("test |  010x| : |%  010x|\n", 2144);
 	res2 = printf("test |  010x| : |%  010x|\n", 2144);
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("test |  010.0d| : |%  010.0d|\n", 0);
+	res2 = printf("test |  010.0d| : |%  010.0d|\n", 0);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("test | .d| : |% .d|\n", 0);
+	res2 = printf("test | .d| : |% .d|\n", 0);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 }
 
 void	test27(void)
@@ -835,6 +862,12 @@ void	test27(void)
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 	res1 = ft_printf("test |#010x| : |%#010x|\n", 0);
 	res2 = printf("test |#010x| : |%#010x|\n", 0);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("test |#-4.3d| : |%4.3d|\n", 0);
+	res2 = printf("test |#-4.3d| : |%4.3d|\n", 0);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("test |#-4.0d| : |%4.0d|\n", 0);
+	res2 = printf("test |#-4.0d| : |%4.0d|\n", 0);
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 }
 
@@ -912,6 +945,9 @@ void	test28(void)
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 	res1 = ft_printf("test |-20.8f| : |%-20.8f|\n", -21.23456);
 	res2 = printf("test |-20.8f| : |%-20.8f|\n", -21.23456);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("test |-4.*f| : |%-4.*f|\n", -2, -21.23456);
+	res2 = printf("test |-4.*f| : |%-4.*f|\n", -2, -21.23456);
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 }
 
@@ -1365,6 +1401,7 @@ int main(int ac, char **av)
 		printf("test33,  flag hh :\n");
 		test33();
 		printf("\n\n------------\n\n");
+		while (1);
 	}
 	
 }

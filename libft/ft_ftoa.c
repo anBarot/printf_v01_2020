@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 11:25:40 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/22 15:29:04 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/23 16:46:18 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_get_size_and_sign_digit(double fl, int *size, int *signif_dig)
 {
-	if (*size == 0)
+	if (*size <= 0)
 	{
 		*size = 6;
 		*signif_dig = *size;
@@ -38,13 +38,13 @@ char	*ft_ftoa(double fl, int size)
 	int		i;
 	int		signif_dig;
 
-	i = 0;
 	signif_dig = size;
 	ft_get_size_and_sign_digit(fl, &size, &signif_dig);
 	if (fl == 0 || fl > 100000000000000000 ||
 		(fl > 0 && fl < 0.000000000000000001))
 		return (ft_strdup("0.000000"));
-	while (fl < 100000000000000000 && i < signif_dig - 1)
+	i = 0;
+	while (fl < 100000000000000000 && i < size + 1)
 	{
 		fl = fl * 10;
 		i++;

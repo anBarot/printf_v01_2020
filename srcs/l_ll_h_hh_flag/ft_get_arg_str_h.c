@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 15:27:34 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/22 17:28:31 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/23 16:52:15 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,5 @@
 
 void	ft_get_arg_str_h(va_list lst, t_spec *spec)
 {
-
-ft_get_arg_as_a_string(lst, spec);
-
-
+	ft_get_arg_as_a_string(lst, spec);
 }
