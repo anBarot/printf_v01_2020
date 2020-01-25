@@ -6,55 +6,70 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 11:25:40 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/25 11:40:14 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/25 15:49:02 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_get_size_and_sign_digit(double fl, int *size, int *signif_dig)
+char		*ft_dtoa(double n)
 {
-	if (*size <= 0)
+	char				*res;
+	int					i;
+	unsigned long long	nbr;
+
+	if (!(res = (char*)ft_calloc(sizeof(char), 21)))
+		return (0);
+	i = 0;
+	nbr = n;
+	if (n < 0)
 	{
-		*size = 6;
-		*signif_dig = *size;
+		res[i++] = '-';
+		nbr = -n;
 	}
-	else
+	while (nbr >= 1)
 	{
-		if (fl < 0)
-			fl = -fl;
-		while (fl >= 1)
-		{
-			*signif_dig = *signif_dig + 1;
-			fl /= 10;
-		}
+		res[i] = (nbr % 10) + 48;
+		nbr = nbr / 10;
+		i++;
 	}
+	return (ft_reverse_string(res));
+}
+
+char	*ft_get_f_string(double fl, int size)
+{
+	char	*res_dec;
+	char	*res;
+
+	res = ft_dtoa(fl);
+	res_dec = ft_strjoin(".", ft_strdup(res + ft_strlen(res) - size), 2);
+	res[ft_strlen(res) - size] = '\0';
+	return (ft_strjoin(res, res_dec, 3));
 }
 
 char	*ft_ftoa(double fl, int size)
 {
-	char	*res;
-	char	*res_dec;
-	int		i;
-	int		signif_dig;
+	int		mult;
+	int		sign;
 
-	signif_dig = size;
-	ft_get_size_and_sign_digit(fl, &size, &signif_dig);
-	if (fl == 0 || fl > 100000000000000000 ||
-		(fl > 0 && fl < 0.000000000000000001))
+	if (fl > (double)0 && fl < 0.0000000000000001)
 		return (ft_strdup("0.000000"));
-	i = 0;
-	while (fl < 100000000000000000 && i < size + 1)
+	(size <= 0) ? size = 6 : 0;
+	mult = 0;
+	sign = 1;
+	if (fl < 0)
+	{
+		fl = -fl;
+		sign = -1;
+	}
+	while (mult < size + 1)
 	{
 		fl = fl * 10;
-		i++;
+		mult++;
 	}
-	res = ft_litoa(fl);
-	res = ft_rounded_ascii(res);
-	while (i++ <= size)
-		res = ft_strjoin(res, "0", 1);
-	res_dec = ft_strdup(res + ft_strlen(res) - size);
-	res[ft_strlen(res) - size] = '\0';
-	res = ft_strjoin(ft_strjoin(res, ".", 1), res_dec, 3);
-	return (res);
+	if ((long long)fl % 10 <= 5)
+		fl = fl / 10;
+	else
+		fl = (fl / 10) + 1;
+	return (ft_get_f_string(fl * sign, size));
 }

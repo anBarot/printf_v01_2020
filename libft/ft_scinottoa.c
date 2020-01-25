@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 13:52:35 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/22 13:39:28 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/25 16:16:10 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ char	*ft_scinottoa(double n, int size)
 	char	*exponent;
 	int		sign;
 
-	if (n == (double)0)
-		return (ft_strdup("0.000000e+00"));
 	sign = 1;
 	if (n < 0)
 	{

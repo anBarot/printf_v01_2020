@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 10:16:04 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/25 13:39:24 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/25 16:16:32 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1001,6 +1001,12 @@ void	test29(void)
 	res1 = ft_printf("test |.4e| : |%.4e|\n", -21.23455);
 	res2 = printf("test |.4e| : |%.4e|\n", -21.23455);
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("test |.3e| : |%.3e|\n", -21.23455);
+	res2 = printf("test |.3e| : |%.3e|\n", -21.23455);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("test |.2e| : |%.2e|\n", -21.23455);
+	res2 = printf("test |.2e| : |%.2e|\n", -21.23455);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 	res1 = ft_printf("test |.4e| : |%.4e|\n", -99.99999);
 	res2 = printf("test |.4e| : |%.4e|\n", -99.99999);
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
@@ -1022,8 +1028,8 @@ void	test29(void)
 	res1 = ft_printf("test |-.8e| : |%-.8e|\n", -21.23456);
 	res2 = printf("test |-.8e| : |%-.8e|\n", -21.23456);
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
-	res1 = ft_printf("test |-20.8e| : |%-20.8e|\n", -21.23456);
-	res2 = printf("test |-20.8e| : |%-20.8e|\n", -21.23456);
+	res1 = ft_printf("test |-20.8e| : |%-20.8e|\n", -212345611,11);
+	res2 = printf("test |-20.8e| : |%-20.8e|\n", -212345611,11);
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 }
 
@@ -1392,8 +1398,7 @@ int main(int ac, char **av)
 		printf("test28, float type :\n");
 		test28();
 		printf("\n\n------------\n\n");
-	
- }
+	}
 
 	if (ac == 1 || atoi(av[1]) == 29 )
 	{
@@ -1414,6 +1419,7 @@ int main(int ac, char **av)
 		printf("test31,  flag ll :\n");
 		test31();
 		printf("\n\n------------\n\n");
+		while (1);
 	}
 
 	

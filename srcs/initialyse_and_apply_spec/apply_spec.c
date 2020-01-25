@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 11:20:00 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/25 13:20:31 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/25 13:46:13 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 
 void	ft_apply_spec(t_spec *spec)
 {
-	// printf("\nprecision ? : %s\nsize : %d\nwidth : %d\nflag : %s\nlong : %s\n---string : %s---\n\n", 
-	// (spec->precision) ? "YES" : "NO", spec->size, spec->width, 
-	// (spec->zero_less_flag == 0) ? "NO" : (spec->zero_less_flag == LESS) ? "LESS" :
-	// (spec->zero_less_flag == ZERO) ? "ZERO" : 0, 
-	// (spec->l_ll_flag == L) ? "L" : (spec->l_ll_flag == LL) ? "LL" : "NO",
-	// spec->arg_str);
-	
 	(spec->space_plus_flag == PLUS) ? ft_apply_plus(spec) : 0;
 	(spec->space_plus_flag == SPACE) ? ft_apply_space(spec) : 0;
 	(spec->precision) ? ft_apply_precision(spec) : 0;
