@@ -6,7 +6,7 @@
 #    By: abarot <abarot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/15 12:18:43 by abarot            #+#    #+#              #
-#    Updated: 2020/01/23 13:13:15 by abarot           ###   ########.fr        #
+#    Updated: 2020/01/25 13:18:27 by abarot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS	=	srcs/ft_printf.c \
 			srcs/initialyse_and_apply_spec/ft_spec_is_valid.c \
 			srcs/parse_functions/ft_get_type.c \
 			srcs/parse_functions/ft_get_flags.c \
+			srcs/parse_functions/ft_get_l_ll.c \
 			srcs/parse_functions/ft_get_precision_and_size.c \
 			srcs/parse_functions/ft_get_arg_as_a_string.c \
 			srcs/parse_functions/ft_get_width.c \
@@ -35,11 +36,9 @@ SRCS	=	srcs/ft_printf.c \
 			srcs/precision/ft_apply_precision_string.c \
 			srcs/precision/ft_apply_precision_float.c \
 			srcs/precision/ft_apply_precision_scinot.c \
-			srcs/l_ll_h_hh_flag/ft_get_arg_as_a_string_llhh.c \
-			srcs/l_ll_h_hh_flag/ft_get_arg_str_l.c \
-			srcs/l_ll_h_hh_flag/ft_get_arg_str_ll.c \
-			srcs/l_ll_h_hh_flag/ft_get_arg_str_h.c \
-			srcs/l_ll_h_hh_flag/ft_get_arg_str_hh.c 
+			srcs/l_ll_flag/ft_get_arg_as_a_string_ll.c \
+			srcs/l_ll_flag/ft_get_arg_str_l.c \
+			srcs/l_ll_flag/ft_get_arg_str_ll.c 
 
 SRCS_LIB	=	libft/ft_memset.c libft/ft_bzero.c libft/ft_memcpy.c libft/ft_memccpy.c \
 				libft/ft_memmove.c libft/ft_memchr.c libft/ft_memcmp.c libft/ft_strlen.c \
@@ -51,9 +50,10 @@ SRCS_LIB	=	libft/ft_memset.c libft/ft_bzero.c libft/ft_memcpy.c libft/ft_memccpy
 				libft/ft_itoa.c libft/ft_strmapi.c libft/ft_putchar_fd.c libft/ft_putstr_fd.c  \
 				libft/ft_putendl_fd.c libft/ft_putnbr_fd.c libft/ft_toupper_string.c \
 				libft/ft_reverse_string.c libft/ft_hextoa.c libft/ft_addtoa.c libft/ft_char_to_str.c \
-				libft/ft_utoa.c libft/ft_ftoa.c libft/ft_ltoa.c libft/ft_rounded_ascii.c \
+				libft/ft_utoa.c libft/ft_ftoa.c libft/ft_litoa.c libft/ft_rounded_ascii.c \
 				libft/ft_is_printf_type.c libft/ft_is_printf_option.c \
-				libft/ft_scinottoa.c
+				libft/ft_scinottoa.c libft/ft_llitoa.c libft/ft_lutoa.c libft/ft_llutoa.c \
+				libft/ft_lhextoa.c libft/ft_llhextoa.c
 
 OBJS		=	$(SRCS:.c=.o)
 

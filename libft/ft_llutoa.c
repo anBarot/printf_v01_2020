@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_arg_str_ll.c                                :+:      :+:    :+:   */
+/*   ft_llutoa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/21 15:27:34 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/22 17:40:28 by abarot           ###   ########.fr       */
+/*   Created: 2020/01/20 11:28:24 by abarot            #+#    #+#             */
+/*   Updated: 2020/01/25 13:20:56 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-void	ft_get_arg_str_ll(va_list lst, t_spec *spec)
+char		*ft_llutoa(unsigned long long n)
 {
-	ft_get_arg_as_a_string(lst, spec);
+	char			*res;
+	int				i;
+
+	if (!(res = (char*)ft_calloc(sizeof(char), 21)))
+		return (0);
+	i = 0;
+	if (!n)
+		res[i++] = 48;
+	while (n >= 1)
+	{
+		res[i] = (n % 10) + 48;
+		n = n / 10;
+		i++;
+	}
+	return (ft_reverse_string(res));
 }

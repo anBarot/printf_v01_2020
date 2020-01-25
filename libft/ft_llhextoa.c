@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_reverse_string.c                                :+:      :+:    :+:   */
+/*   ft_llhextoa.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/20 11:26:21 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/25 12:57:17 by abarot           ###   ########.fr       */
+/*   Created: 2020/01/20 11:25:46 by abarot            #+#    #+#             */
+/*   Updated: 2020/01/25 11:43:27 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_reverse_string(char *s)
+char		*ft_llhextoa(long long unsigned n)
 {
-	int		start;
-	int		end;
-	char	tmp;
+	char	*res;
+	int		i;
+	char	*hexchar;
 
-	if (!s)
+	hexchar = "0123456789abcdef";
+	if (!(res = (char*)calloc(sizeof(char), 21)))
 		return (0);
-	start = 0;
-	if (s[0] == '-')
-		start++;
-	end = ft_strlen(s) - 1;
-	tmp = 0;
-	while (end > start)
+	i = 0;
+	if (n == 0)
+		res[i++] = 48;
+	// if (n > 18446744073709551615)
+	// 	n = 18446744073709551615;
+	while (n >= 1)
 	{
-		tmp = s[start];
-		s[start] = s[end];
-		s[end] = tmp;
-		end--;
-		start++;
+		res[i] = hexchar[(n % 16)];
+		n = n / 16;
+		i++;
 	}
-	return (s);
+	res[i] = '\0';
+	return (ft_reverse_string(res));
 }

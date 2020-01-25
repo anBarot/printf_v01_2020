@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 16:30:39 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/22 17:03:02 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/25 13:19:12 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ int		ft_formated_string(const char *str, va_list arg_lst)
 		return (0);
 	ft_initialyse_spec(spec);
 	ft_get_flags(str, spec);
+	ft_get_l_ll(str, spec);
 	ft_get_width(str, arg_lst, spec);
 	ft_get_precision_and_size(str, arg_lst, spec);
 	ft_get_type(str, spec);
-	(!spec->l_ll_h_hh_flag) ? ft_get_arg_as_a_string(arg_lst, spec) : 0;
-	(spec->l_ll_h_hh_flag) ? ft_get_arg_as_a_string_llhh(arg_lst, spec) : 0;
+	(!spec->l_ll_flag) ? ft_get_arg_as_a_string(arg_lst, spec) : 0;
+	(spec->l_ll_flag) ? ft_get_arg_as_a_string_l_ll(arg_lst, spec) : 0;
 	ft_apply_spec(spec);
 	to_return = ft_strlen(spec->arg_str);
 	if (spec->type == CHAR_IS_ZERO)

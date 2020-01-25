@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ltoa.c                                          :+:      :+:    :+:   */
+/*   ft_get_l_ll.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 16:19:14 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/21 15:38:58 by abarot           ###   ########.fr       */
+/*   Created: 2020/01/21 15:31:24 by abarot            #+#    #+#             */
+/*   Updated: 2020/01/25 13:15:40 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
-char		*ft_ltoa(long long n)
+void	ft_get_l_ll(const char *str, t_spec *spec)
 {
-	char			*res;
-	int				i;
-	long long		nbr;
+	int i_str;
 
-	if (!(res = (char*)malloc(sizeof(char) * 23)))
-		return (0);
-	nbr = n;
-	i = 0;
-	if (nbr < 0)
+	i_str = 0;
+	while (!ft_is_printf_type(str[i_str]))
 	{
-		res[i++] = '-';
-		nbr = -nbr;
+		if (str[i_str] == 'l' && str[i_str + 1] == 'l')
+		{
+			spec->l_ll_flag = LL;
+			i_str++;
+		}
+		else if (str[i_str] == 'l')
+			spec->l_ll_flag = L;
+		i_str++;
 	}
-	if (!nbr)
-		return (ft_char_to_str('0'));
-	while (nbr >= 1)
-	{
-		res[i] = (nbr % 10) + 48;
-		nbr = nbr / 10;
-		i++;
-	}
-	res[i] = '\0';
-	return (ft_reverse_string(res));
 }

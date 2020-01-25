@@ -6,7 +6,7 @@
 #    By: abarot <abarot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/15 12:18:43 by abarot            #+#    #+#              #
-#    Updated: 2020/01/21 14:46:05 by abarot           ###   ########.fr        #
+#    Updated: 2020/01/25 11:37:17 by abarot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,9 @@ SRCS	=	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c \
 			ft_putendl_fd.c ft_putnbr_fd.c ft_toupper_string.c \
 			ft_reverse_string.c ft_hextoa.c ft_addtoa.c ft_char_to_str.c \
 			ft_is_printf_option.c ft_is_printf_type.c \
-			ft_utoa.c ft_ftoa.c ft_rounded_ascii.c ft_ltoa.c \
-			ft_scinottoa.c 
+			ft_utoa.c ft_ftoa.c ft_rounded_ascii.c ft_litoa.c \
+			ft_scinottoa.c ft_llitoa.c ft_lutoa.c ft_llutoa.c \
+			ft_lhextoa.c ft_llhextoa.c
 
 OBJS	=	$(SRCS:.c=.o)
 

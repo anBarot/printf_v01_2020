@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 17:31:34 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/21 17:44:58 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/25 13:06:44 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int					ft_isalpha(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isprint(int c);
-char				*ft_itoa(int n);
 void				*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
@@ -51,15 +50,21 @@ int					ft_tolower(int c);
 int					ft_toupper(int c);
 char				*ft_strnstr(const char *str, const char *to_find, size_t n);
 char				*ft_reverse_string(char *s);
-char				*ft_utoa(unsigned int n);
 char				*ft_addtoa(unsigned long n);
-char				*ft_hextoa(unsigned int n);
 char				*ft_char_to_str(int c);
 char				*ft_toupper_string(char *str);
 char				*ft_ftoa(double fl, int size);
 char				*ft_rounded_ascii(char *str);
-char				*ft_ltoa(long long n);
 int					ft_is_printf_type(char c);
 int					ft_is_printf_option(char c);
 char				*ft_scinottoa(double fl, int size);
+char				*ft_itoa(int n);
+char				*ft_litoa(long n);
+char				*ft_llitoa(long long n);
+char				*ft_utoa(unsigned n);
+char				*ft_lutoa(long unsigned n);
+char				*ft_llutoa(unsigned long long n);
+char				*ft_hextoa(unsigned n);
+char				*ft_lhextoa(long unsigned n);
+char				*ft_llhextoa(long long unsigned n);
 #endif

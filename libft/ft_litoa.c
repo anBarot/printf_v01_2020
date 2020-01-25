@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_arg_str_hh.c                                :+:      :+:    :+:   */
+/*   ft_litoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/21 15:27:34 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/22 17:23:49 by abarot           ###   ########.fr       */
+/*   Created: 2019/10/08 16:19:14 by abarot            #+#    #+#             */
+/*   Updated: 2020/01/25 12:11:25 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-void	ft_get_arg_str_hh(va_list lst, t_spec *spec)
+char		*ft_litoa(long n)
 {
-	// if (spec->type == SIGNED_INT)
-	// 	spec->arg_str = ft_itoa(va_arg(lst, int))	
-	// else if (spec->type == HEXADEC || spec->type == CAP_HEXADEC ||
-	// spec->type == UNSIGNED_INT)
-	// {
-		
-	// }
-	// else
-		ft_get_arg_as_a_string(lst, spec);
+	char			*res;
+	int				i;
+	long long		nbr;
+
+	if (!n)
+		return (ft_char_to_str('0'));
+	if (!(res = (char*)ft_calloc(sizeof(char), 12)))
+		return (0);
+	nbr = n;
+	i = 0;
+	if (n < 0)
+	{
+		res[i++] = '-';
+		nbr = -n;
+	}
+	while (nbr >= 1)
+	{
+		res[i] = (nbr % 10) + 48;
+		nbr = nbr / 10;
+		i++;
+	}
+	return (ft_reverse_string(res));
 }

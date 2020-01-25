@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 11:25:40 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/23 16:46:18 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/25 11:40:14 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*ft_ftoa(double fl, int size)
 		fl = fl * 10;
 		i++;
 	}
-	res = ft_ltoa(fl);
+	res = ft_litoa(fl);
 	res = ft_rounded_ascii(res);
 	while (i++ <= size)
 		res = ft_strjoin(res, "0", 1);

@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_initialyse_spec.c                               :+:      :+:    :+:   */
+/*   ft_lutoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/08 16:22:59 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/25 12:52:17 by abarot           ###   ########.fr       */
+/*   Created: 2020/01/20 11:28:24 by abarot            #+#    #+#             */
+/*   Updated: 2020/01/25 11:40:51 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-void	ft_initialyse_spec(t_spec *spec)
+char		*ft_lutoa(long unsigned n)
 {
-	spec->type = ERROR;
-	spec->zero_less_flag = NO_FLAG_ZERO_LESS;
-	spec->space_plus_flag = NO_FLAG_SPACE_PLUS;
-	spec->l_ll_flag = NO_FLAG_L_LL;
-	spec->hashtag_flag = 0;
-	spec->width = 0;
-	spec->precision = 0;
-	spec->size = 0;
+	char			*res;
+	int				i;
+
+	if (!(res = (char*)ft_calloc(sizeof(char), 12)))
+		return (0);
+	i = 0;
+	if (n == 0)
+		res[i++] = 48;
+	if (n > 4294967295)
+		n = 4294967295;
+	while (n >= 1)
+	{
+		res[i] = (n % 10) + 48;
+		n = n / 10;
+		i++;
+	}
+	return (ft_reverse_string(res));
 }
