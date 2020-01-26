@@ -27,10 +27,6 @@ void	ft_apply_precision(t_spec *spec)
 {
 	(spec->type == STRING) ? ft_apply_precision_string(spec) : 0;
 	(spec->type == ADDRESS) ? ft_apply_precision_address(spec) : 0;
-	if (spec->type == FLOAT && !spec->size)
-		ft_apply_precision_float(spec);
-	if (spec->type == SCI_NOTATION && !spec->size)
-		ft_apply_precision_scinot(spec);
 	(spec->type == UNSIGNED_INT || spec->type == SIGNED_INT ||
 		spec->type == HEXADEC || spec->type == CAP_HEXADEC) ?
 		ft_apply_precision_number(spec) : 0;

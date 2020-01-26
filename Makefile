@@ -34,8 +34,6 @@ SRCS	=	srcs/ft_printf.c \
 			srcs/precision/ft_apply_precision_address.c \
 			srcs/precision/ft_apply_precision_number.c \
 			srcs/precision/ft_apply_precision_string.c \
-			srcs/precision/ft_apply_precision_float.c \
-			srcs/precision/ft_apply_precision_scinot.c \
 			srcs/l_ll_flag/ft_get_arg_as_a_string_ll.c \
 			srcs/l_ll_flag/ft_get_arg_str_l.c \
 			srcs/l_ll_flag/ft_get_arg_str_ll.c 
@@ -50,7 +48,7 @@ SRCS_LIB	=	libft/ft_memset.c libft/ft_bzero.c libft/ft_memcpy.c libft/ft_memccpy
 				libft/ft_itoa.c libft/ft_strmapi.c libft/ft_putchar_fd.c libft/ft_putstr_fd.c  \
 				libft/ft_putendl_fd.c libft/ft_putnbr_fd.c libft/ft_toupper_string.c \
 				libft/ft_reverse_string.c libft/ft_hextoa.c libft/ft_addtoa.c libft/ft_char_to_str.c \
-				libft/ft_utoa.c libft/ft_ftoa.c libft/ft_litoa.c libft/ft_rounded_ascii.c \
+				libft/ft_utoa.c libft/ft_ftoa.c libft/ft_litoa.c \
 				libft/ft_is_printf_type.c libft/ft_is_printf_option.c \
 				libft/ft_scinottoa.c libft/ft_llitoa.c libft/ft_lutoa.c libft/ft_llutoa.c \
 				libft/ft_lhextoa.c libft/ft_llhextoa.c

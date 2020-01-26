@@ -14,7 +14,7 @@
 
 void	ft_apply_precision_string(t_spec *spec)
 {
-	if (spec->size == 0 || spec->arg_str == 0)
+	if (!spec->size || !spec->arg_str)
 	{
 		(spec->arg_str) ? free(spec->arg_str) : 0;
 		spec->arg_str = ft_strdup("\0");

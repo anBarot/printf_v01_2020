@@ -33,7 +33,7 @@ void	ft_get_precision_and_size(const char *str, va_list lst, t_spec *spec)
 				spec->size = ft_atoi(str + i_str);
 			else if (str[i_str] == '-')
 				spec->zero_less_flag = LESS;
-			else if (str[i_str] != '.' && str[i_str] != '-')
+			else if (str[i_str] != '.')
 				break ;
 		}
 		else

@@ -13,6 +13,8 @@
 #include "libftprintf.h"
 #include <stdio.h>
 
+//test precision neg pour string
+
 static int res1 = 0;
 static int res2 = 0;
 
@@ -511,6 +513,12 @@ void	test19(void)
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 	res1 = ft_printf("test |8.0s| : |%8.0s|\n", 0);
 	res2 = printf("test |8.0s| : |%8.0s|\n", 0);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("test |.-10s| : |%.-10s|\n", "bonjour!");
+	res2 = printf("test |.-10s| : |%.-10s|\n", "bonjour!");
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("test |8.0s| : |%.*s|\n", -10,"bonjour!");
+	res2 = printf("test |8.0s| : |%.*s|\n",-10, "bonjour!");
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 }
 
