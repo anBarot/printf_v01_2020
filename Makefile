@@ -63,7 +63,7 @@ LIB		=	libft
 
 LIB_PATH	=	libft/
 
-CFLAGS	=	 -Wall -Wextra #-Werror
+CFLAGS	=	 -Wall -Wextra -Werror
 
 RM	=	rm -f
 
