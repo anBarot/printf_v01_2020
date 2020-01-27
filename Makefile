@@ -6,7 +6,7 @@
 #    By: abarot <abarot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/15 12:18:43 by abarot            #+#    #+#              #
-#    Updated: 2020/01/27 11:16:22 by abarot           ###   ########.fr        #
+#    Updated: 2020/01/27 12:44:28 by abarot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,13 +64,16 @@ LIB		=	libft
 
 LIB_PATH	=	libft/
 
-CFLAGS	=	 -Wall -Wextra -Werror
+CFLAGS	=	 -Wall -Wextra #-Werror
 
 RM	=	rm -f
 
 all	:
 		make -C libft
 		@make $(NAME)
+
+bonus : 
+		make all
 		
 %.o : %.c
 		gcc $(CFLAGS) -c $< -o $@ -I$(INCLUDE)

@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 10:16:04 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/27 10:46:36 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/27 13:16:16 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -391,6 +391,9 @@ void	test16(void)
 	res1 = ft_printf("test |.*u|: %.*u\n", 8, 2144);
 	res2 = printf("test |.*u|: %.*u\n", 8, 2144);
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("test |0-8.5u|: %0-8.5u\n", 8, 2144);
+	res2 = printf("test |0-8.5u|: %0-8.5u\n", 8, 2144);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 }
 
 void	test17(void)
@@ -596,8 +599,14 @@ void	test20(void)
 	res1 = ft_printf("test 10 : |%8.0%|\n", 'a');
 	res2 = printf("test 10 : |%8.0%|\n", 'a');
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
-	res1 = ft_printf("test 10 : |%04.2%|\n", 'a');
-	res2 = printf("test 10 : |%04.2%|\n", 'a');
+	res1 = ft_printf("test 11 : |%04.2c|\n", 'a');
+	res2 = printf("test 11 : |%04.2c|\n", 'a');
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("test 12 : |%-4.c|\n", 'a');
+	res2 = printf("test 12 : |%-4.c|\n", 'a');
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("test 12 : |%-4c|\n", 'a');
+	res2 = printf("test 12 : |%-4c|\n", 'a');
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 }
 
@@ -640,8 +649,8 @@ void	test21(void)
 	res1 = ft_printf("test 9 |-16.p| : |%-16.p|\n", 0);
 	res2 = printf("test 9 |-16.p| : |%-16.p|\n", 0);
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
-	res1 = ft_printf("test 9 |-16.p| : |%-16.0p|\n", 0);
-	res2 = printf("test 9 |-16.p| : |%-16.0p|\n", 0);
+	res1 = ft_printf("test 10 |-16p| : |%-16p|\n", 0);
+	res2 = printf("test 10 |-16p| : |%-16p|\n", 0);
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 }
 
@@ -847,6 +856,7 @@ void	test26(void)
 
 void	test27(void)
 {
+	int i = 96;
 	res1 = ft_printf("test |#0d| : |%#0d|\n", 2144);
 	res2 = printf("test |#0d| : |%#0d|\n", 2144);
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
@@ -879,6 +889,9 @@ void	test27(void)
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 	res1 = ft_printf("test |#-4.0d| : |%4.0d|\n", 0);
 	res2 = printf("test |#-4.0d| : |%4.0d|\n", 0);
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("test |#10p| : |%10p|\n", i);
+	res2 = printf("test |#10p| : |%10p|\n", i);
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 }
 
@@ -1186,7 +1199,7 @@ printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 
 int main(int ac, char **av)
 {
-	if (ac == 1 || atoi(av[1]) == 1 )
+	if (ac == 1 || atoi(av[1]) == 1)
 	{
 		printf("test1, string simple :\n");
 		test1();
@@ -1195,7 +1208,7 @@ int main(int ac, char **av)
 
  }
 
-	if (ac == 1 || atoi(av[1]) == 2 )
+	if (ac == 1 || atoi(av[1]) == 2 || av[1][0] == 's')
 	{
 		printf("test2, argument string :\n");
 		test2();
@@ -1204,7 +1217,7 @@ int main(int ac, char **av)
 
  }
 
-	if (ac == 1 || atoi(av[1]) == 3 )
+	if (ac == 1 || atoi(av[1]) == 3 || av[1][0] == 'd')
 	{
 		printf("test3, argument int d :\n");
 		test3();
@@ -1212,7 +1225,7 @@ int main(int ac, char **av)
 		
 	 }
 
-	if (ac == 1 || atoi(av[1]) == 4 )
+	if (ac == 1 || atoi(av[1]) == 4 || av[1][0] == 'c')
 	{
 		printf("test4, argument char :\n");
 		test4();
@@ -1220,7 +1233,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 5 )
+	if (ac == 1 || atoi(av[1]) == 5 || av[1][0] == 'i')
 	{
 		printf("test5, argument int i :\n");
 		test5();
@@ -1228,7 +1241,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 6 )
+	if (ac == 1 || atoi(av[1]) == 6 || av[1][0] == 'u')
 	{
 		printf("test6, argument unsigned int :\n");
 		test6();
@@ -1236,7 +1249,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 7 )
+	if (ac == 1 || atoi(av[1]) == 7 || av[1][0] == 'p')
 	{
 		printf("test7, argument address :\n");
 		test7();
@@ -1244,7 +1257,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 8 )
+	if (ac == 1 || atoi(av[1]) == 8 || av[1][0] == 'x')
 	{
 		printf("test8, argument x :\n");
 		test8();
@@ -1252,7 +1265,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 9 )
+	if (ac == 1 || atoi(av[1]) == 9 || av[1][0] == 'X')
 	{
 		printf("test9, argument X :\n");
 		test9();
@@ -1260,7 +1273,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 10 )
+	if (ac == 1 || atoi(av[1]) == 10 || av[1][0] == '%')
 	{
 		printf("test10, argument %% :\n");
 		test10();
@@ -1268,7 +1281,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 11 )
+	if (ac == 1 || atoi(av[1]) == 11 || av[1][0] == 'a')
 	{
 		printf("test11, all arguments type :\n");
 		test11();
@@ -1276,7 +1289,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 12 )
+	if (ac == 1 || atoi(av[1]) == 12 || av[1][0] == '-')
 	{
 		printf("test12, flag - :\n");
 		test12();
@@ -1284,7 +1297,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 13 )
+	if (ac == 1 || atoi(av[1]) == 13 || av[1][0] == '0')
 	{
 		printf("test13, flag 0 :\n");
 		test13();
@@ -1292,7 +1305,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 14 )
+	if (ac == 1 || atoi(av[1]) == 14 || av[1][0] == '.')
 	{
 		printf("test14, flag . :\n");
 		test14();
@@ -1300,7 +1313,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 15 )
+	if (ac == 1 || atoi(av[1]) == 15 || av[1][0] == '*')
 	{
 		printf("test15, flag * :\n");
 		test15();
@@ -1308,7 +1321,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 16 )
+	if (ac == 1 || atoi(av[1]) == 16 || av[1][0] == 'u')
 	{
 		printf("test16, flags 0-*. with unsigned int :\n");
 		test16();
@@ -1316,7 +1329,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 17 )
+	if (ac == 1 || atoi(av[1]) == 17 || av[1][0] == '0')
 	{
 		printf("test17, flag 0 :\n");
 		test17();
@@ -1324,7 +1337,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 18 )
+	if (ac == 1 || atoi(av[1]) == 18)
 	{
 		printf("test18, flags random :\n");
 		test18();
@@ -1332,7 +1345,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 19 )
+	if (ac == 1 || atoi(av[1]) == 19 || av[1][0] == 's')
 	{
 		printf("test19, flags string :\n");
 		test19();
@@ -1340,7 +1353,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 20 )
+	if (ac == 1 || atoi(av[1]) == 20 || av[1][0] == 'c')
 	{
 		printf("test20, flags char :\n");
 		test20();
@@ -1348,7 +1361,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 21 )
+	if (ac == 1 || atoi(av[1]) == 21 || av[1][0] == 'p')
 	{
 		printf("test21, flags address :\n");
 		test21();
@@ -1356,7 +1369,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 22 )
+	if (ac == 1 || atoi(av[1]) == 22 || av[1][0] == 'X')
 	{
 		printf("test22, flags X :\n");
 		test22();
@@ -1364,7 +1377,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 23 )
+	if (ac == 1 || atoi(av[1]) == 23 || av[1][0] == 'x')
 	{
 		printf("test23, flags x :\n");
 		test23();
@@ -1372,7 +1385,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 24 )
+	if (ac == 1 || atoi(av[1]) == 24 || av[1][0] == '-' || av[1][0] == '0' || av[1][0] == '.')
 	{
 		printf("test24, multiflags --, 00, .. :\n");
 		test24();
@@ -1380,7 +1393,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 25 )
+	if (ac == 1 || atoi(av[1]) == 25 || av[1][0] == '+')
 	{
 		printf("test25, + flag :\n");
 		test25();
@@ -1388,7 +1401,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 26 )
+	if (ac == 1 || atoi(av[1]) == 26 || av[1][0] == ' ')
 	{
 		printf("test26, ' ' flag :\n");
 		test26();
@@ -1396,7 +1409,7 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 27 )
+	if (ac == 1 || atoi(av[1]) == 27 || av[1][0] == '#')
 	{
 		printf("test27, # flag :\n");
 		test27();
@@ -1404,28 +1417,28 @@ int main(int ac, char **av)
 	
  }
 
-	if (ac == 1 || atoi(av[1]) == 28 )
+	if (ac == 1 || atoi(av[1]) == 28 || av[1][0] == 'f')
 	{
 		printf("test28, float type :\n");
 		test28();
 		printf("\n\n------------\n\n");
 	}
 
-	if (ac == 1 || atoi(av[1]) == 29 )
+	if (ac == 1 || atoi(av[1]) == 29 || av[1][0] == 'e')
 	{
 		printf("test29,  type e :\n");
 		test29();
 		printf("\n\n------------\n\n");
 	}
 
-	if (ac == 1 || atoi(av[1]) == 30 )
+	if (ac == 1 || atoi(av[1]) == 30 || av[1][0] == 'l')
 	{
 		printf("test30,  flag l :\n");
 		test30();
 		printf("\n\n------------\n\n");
 	}
 
-	if (ac == 1 || atoi(av[1]) == 31 )
+	if (ac == 1 || atoi(av[1]) == 31 || av[1][0] == 'l')
 	{
 		printf("test31,  flag ll :\n");
 		test31();

@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 15:31:24 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/25 13:15:53 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/27 12:32:15 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@ void	ft_get_flags(const char *str, t_spec *spec)
 	while (!ft_is_printf_type(str[i_str]) && str[i_str] && str[i_str] != '.')
 	{
 		if (str[i_str] == '0')
+		{
 			(spec->zero_less_flag != LESS) ? spec->zero_less_flag = ZERO : 0;
+			while (str[i_str] == '0')
+				i_str++;
+		}
 		(str[i_str] == '-') ? spec->zero_less_flag = LESS : 0;
 		(str[i_str] == '+') ? spec->space_plus_flag = PLUS : 0;
 		if (str[i_str] == ' ')

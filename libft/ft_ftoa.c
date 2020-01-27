@@ -6,13 +6,13 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 11:25:40 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/25 15:49:02 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/27 12:34:38 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_dtoa(double n)
+char	*ft_dtoa(double n)
 {
 	char				*res;
 	int					i;
