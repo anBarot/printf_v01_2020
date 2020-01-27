@@ -6,11 +6,18 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 15:30:52 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/21 15:31:08 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/27 10:50:54 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+void	ft_arg_is_neg(int value, t_spec *spec)
+{
+	spec->zero_less_flag = LESS;
+	spec->width = -value;
+	spec->precision = 0;
+}
 
 void	ft_get_width(const char *str, va_list lst, t_spec *spec)
 {

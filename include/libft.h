@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 17:31:34 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/25 16:15:16 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/27 10:34:00 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ char				*ft_addtoa(unsigned long n);
 char				*ft_char_to_str(int c);
 char				*ft_toupper_string(char *str);
 char				*ft_ftoa(double fl, int size);
-char				*ft_rounded_ascii(char *str);
 int					ft_is_printf_type(char c);
 int					ft_is_printf_option(char c);
 char				*ft_scinottoa(double fl, int size);

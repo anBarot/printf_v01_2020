@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 10:16:04 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/25 16:16:32 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/27 10:46:36 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -516,6 +516,9 @@ void	test19(void)
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 	res1 = ft_printf("test |.-10s| : |%.-10s|\n", "bonjour!");
 	res2 = printf("test |.-10s| : |%.-10s|\n", "bonjour!");
+	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
+	res1 = ft_printf("test |.-10s| : |%.-0s|\n", "bonjour!");
+	res2 = printf("test |.-10s| : |%.-0s|\n", "bonjour!");
 	printf("\nres1 : %d, res2 : %d\n\n", res1, res2);
 	res1 = ft_printf("test |8.0s| : |%.*s|\n", -10,"bonjour!");
 	res2 = printf("test |8.0s| : |%.*s|\n",-10, "bonjour!");

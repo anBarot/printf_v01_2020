@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 11:20:00 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/25 13:46:13 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/27 11:12:04 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ void	ft_apply_spec(t_spec *spec)
 void	ft_apply_precision(t_spec *spec)
 {
 	(spec->type == STRING) ? ft_apply_precision_string(spec) : 0;
+	(spec->type == FLOAT && !spec->size) ? ft_apply_precision_float(spec) : 0;
+	if (spec->type == SCI_NOTATION && !spec->size)
+		ft_apply_precision_scinot(spec);
 	(spec->type == ADDRESS) ? ft_apply_precision_address(spec) : 0;
 	(spec->type == UNSIGNED_INT || spec->type == SIGNED_INT ||
 		spec->type == HEXADEC || spec->type == CAP_HEXADEC) ?

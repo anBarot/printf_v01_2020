@@ -6,11 +6,18 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 15:29:29 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/23 13:51:39 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/27 10:53:11 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+void	ft_precision_is_neg(const char *str, int i_str, t_spec *spec)
+{
+	spec->zero_less_flag = LESS;
+	if (ft_isdigit(str[i_str + 1]))
+		spec->width = ft_atoi(str + i_str + 1);
+}
 
 void	ft_get_precision_and_size(const char *str, va_list lst, t_spec *spec)
 {
@@ -32,7 +39,7 @@ void	ft_get_precision_and_size(const char *str, va_list lst, t_spec *spec)
 			if (ft_isdigit(str[i_str]))
 				spec->size = ft_atoi(str + i_str);
 			else if (str[i_str] == '-')
-				spec->zero_less_flag = LESS;
+				ft_precision_is_neg(str, i_str, spec);
 			else if (str[i_str] != '.')
 				break ;
 		}

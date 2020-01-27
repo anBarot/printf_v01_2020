@@ -6,7 +6,7 @@
 /*   By: abarot <abarot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 13:19:04 by abarot            #+#    #+#             */
-/*   Updated: 2020/01/25 13:17:15 by abarot           ###   ########.fr       */
+/*   Updated: 2020/01/27 10:51:07 by abarot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void					ft_get_width(const char *str, va_list lst,
 						t_spec *spec);
 void					ft_get_precision_and_size(const char *str, va_list lst,
 						t_spec *spec);
-void					ft_arg_is_neg(int value, t_spec *spec);
 void					ft_get_arg_as_a_string(va_list lst, t_spec *spec);
 void					ft_apply_spec(t_spec *spec);
 void					ft_apply_no_flag(t_spec *spec);

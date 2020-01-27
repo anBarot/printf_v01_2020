@@ -6,7 +6,7 @@
 #    By: abarot <abarot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/15 12:18:43 by abarot            #+#    #+#              #
-#    Updated: 2020/01/25 13:18:27 by abarot           ###   ########.fr        #
+#    Updated: 2020/01/27 11:10:00 by abarot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ SRCS	=	srcs/ft_printf.c \
 			srcs/parse_functions/ft_get_precision_and_size.c \
 			srcs/parse_functions/ft_get_arg_as_a_string.c \
 			srcs/parse_functions/ft_get_width.c \
-			srcs/parse_functions/ft_arg_is_neg.c \
 			srcs/width_and_flag/ft_apply_hashtag.c \
 			srcs/width_and_flag/ft_apply_less.c \
 			srcs/width_and_flag/ft_apply_no_flag.c \
@@ -34,6 +33,8 @@ SRCS	=	srcs/ft_printf.c \
 			srcs/precision/ft_apply_precision_address.c \
 			srcs/precision/ft_apply_precision_number.c \
 			srcs/precision/ft_apply_precision_string.c \
+			srcs/precision/ft_apply_precision_float.c \
+			srcs/precision/ft_apply_precision_scinot.c \
 			srcs/l_ll_flag/ft_get_arg_as_a_string_ll.c \
 			srcs/l_ll_flag/ft_get_arg_str_l.c \
 			srcs/l_ll_flag/ft_get_arg_str_ll.c 
@@ -63,7 +64,7 @@ LIB		=	libft
 
 LIB_PATH	=	libft/
 
-CFLAGS	=	 -Wall -Wextra -Werror
+CFLAGS	=	 -Wall -Wextra #-Werror
 
 RM	=	rm -f
 
